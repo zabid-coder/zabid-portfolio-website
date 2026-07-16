@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -10,6 +10,16 @@ export default function Contact() {
     budget: "",
     description: ""
   });
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const service = params.get("service");
+    if (service === "video") {
+      setFormData(prev => ({ ...prev, type: "Visual Storytelling" }));
+    } else if (service === "dev") {
+      setFormData(prev => ({ ...prev, type: "Software Development" }));
+    }
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

@@ -159,7 +159,7 @@ export default function LandingIntro() {
       {/* Choice buttons */}
       <div className="relative flex flex-col sm:flex-row gap-0 mt-auto mb-8 md:mb-0 z-20 pointer-events-auto shadow-2xl">
         <button
-          onClick={() => handleNavigation('/projects')}
+          onClick={() => handleNavigation('/contact?service=video')}
           onMouseEnter={() => setHovered('editor')}
           onMouseLeave={() => setHovered(null)}
           className={`px-8 py-4 md:px-10 2xl:px-12 2xl:py-5 text-[10px] md:text-xs 2xl:text-sm font-mono font-bold tracking-widest uppercase transition-all duration-300 border border-transparent active:scale-95 active:bg-accent active:text-white ${
@@ -169,7 +169,7 @@ export default function LandingIntro() {
           You need an editor
         </button>
         <button
-          onClick={() => handleNavigation('/projects')}
+          onClick={() => handleNavigation('/contact?service=dev')}
           onMouseEnter={() => setHovered('developer')}
           onMouseLeave={() => setHovered(null)}
           className={`px-8 py-4 md:px-10 2xl:px-12 2xl:py-5 text-[10px] md:text-xs 2xl:text-sm font-mono font-bold tracking-widest uppercase transition-all duration-300 border active:scale-95 active:bg-accent active:text-white active:border-accent ${
