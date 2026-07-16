@@ -139,7 +139,7 @@ export default function LandingIntro() {
 
       {/* Portrait */}
       <div 
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[55vh] md:h-[60vh] lg:h-[65vh] z-20 pointer-events-none"
+        className="absolute bottom-[8vh] md:bottom-0 left-1/2 -translate-x-1/2 w-full h-[55vh] md:h-[60vh] lg:h-[65vh] z-20 pointer-events-none"
         style={{ 
           maskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)', 
           WebkitMaskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)' 
