@@ -18,6 +18,7 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://zabidalmuttaki.netlify.app"),
   title: "Zabid Al Muttaki | Visual Storyteller & Developer",
   description: "Visual storyteller and software developer from Bangladesh. Crafting cinematic videos, AI animations, and full-stack web applications.",
   keywords: ["Zabid Al Muttaki", "Video Editor", "Developer", "React", "Next.js", "DaVinci Resolve", "Bangladesh", "Portfolio"],
@@ -50,8 +51,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Zabid Al Muttaki',
+    jobTitle: 'Visual Storyteller & Developer',
+    url: 'https://zabidalmuttaki.netlify.app',
+    sameAs: [
+      'https://www.youtube.com/@zabidalmuttaki3482',
+      'https://www.linkedin.com/in/zabidalmuttaki/',
+      'https://github.com/zabid-coder',
+    ],
+  };
+
   return (
     <html lang="en" className={`${inter.variable} ${spaceMono.variable} antialiased`} suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col font-sans bg-grid" suppressHydrationWarning>
         <SmoothScroll>
           <Navbar />
