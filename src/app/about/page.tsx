@@ -7,8 +7,8 @@ import { ABOUT, EDUCATION, EXPERIENCE, AWARDS } from "@/data";
 export default function About() {
   return (
     <div className="min-h-screen w-full max-w-[1440px] mx-auto px-8 pt-40 pb-32">
-      <div className="grid flex-col-reverse grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
-        <div className="lg:col-span-5 relative lg:sticky top-32">
+      <div className="flex flex-col lg:grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+        <div className="lg:col-span-5 relative lg:sticky top-32 mb-12 lg:mb-0 w-full">
            <BracketFrame className="p-8 mx-auto w-full max-w-lg" bracketColor="border-foreground" offset={0}>
              <div className="relative aspect-[4/5] w-full bg-foreground/5 border border-foreground/10 overflow-hidden">
                <Image 

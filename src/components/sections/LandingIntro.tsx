@@ -66,7 +66,7 @@ export default function LandingIntro() {
   };
 
   return (
-    <section className="relative h-[100dvh] min-h-[600px] w-full bg-transparent flex flex-col items-center pt-[15vh] md:pt-[20vh] 2xl:pt-[25vh] pb-0 overflow-hidden">
+    <section className="relative h-[100dvh] min-h-[600px] w-full bg-transparent flex flex-col items-center pt-[20vh] md:pt-[25vh] pb-0 overflow-hidden">
       
       {/* Intro line */}
       <p className="text-[10px] md:text-xs 2xl:text-sm font-mono tracking-widest font-bold uppercase text-foreground/80 mb-6 z-10">
@@ -157,7 +157,7 @@ export default function LandingIntro() {
       </div>
 
       {/* Choice buttons */}
-      <div className="relative flex flex-col sm:flex-row gap-0 mt-auto z-20 pointer-events-auto shadow-2xl">
+      <div className="relative flex flex-col sm:flex-row gap-0 mt-auto mb-8 md:mb-0 z-20 pointer-events-auto shadow-2xl">
         <button
           onClick={() => handleNavigation('/projects')}
           onMouseEnter={() => setHovered('editor')}

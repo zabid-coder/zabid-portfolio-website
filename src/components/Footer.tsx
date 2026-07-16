@@ -4,9 +4,9 @@ import Logo from "./Logo";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-footer text-background pt-24 pb-8 border-t-[8px] border-background">
+    <footer className="w-full bg-footer text-background pt-16 pb-8 border-t-[8px] border-background">
       <div className="max-w-[1440px] mx-auto px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-16 mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-12">
           
           <div className="lg:col-span-1">
             <Logo variant="dark" className="mb-8" />
