@@ -44,6 +44,9 @@ export const metadata: Metadata = {
     description: "Crafting cinematic videos, AI animations, and full-stack web applications from Bangladesh.",
     images: ["/og-image.jpg"],
   },
+  verification: {
+    google: "2JO6RdOtWvlDFqcQwphANol6oLkvTlJodBdRixEK8D0",
+  },
 };
 
 export default function RootLayout({
