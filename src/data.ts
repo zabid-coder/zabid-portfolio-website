@@ -17,7 +17,7 @@ export const ROLES = [
   "Open Source"
 ];
 
-export const PROJECTS = [
+export const DOCUMENTARIES = [
   {
     id: "newf-drik",
     title: "NEWF x Drik Exchange",
@@ -29,7 +29,7 @@ export const PROJECTS = [
   {
     id: "unicef-documentary",
     title: "UNICEF Documentary",
-    category: "Documentary",
+    category: "Documentary Film",
     year: "2024",
     image: "/thumb_unicef_doc.jpg",
     youtubeId: "lXoxVsGWqPE",
@@ -37,7 +37,7 @@ export const PROJECTS = [
   {
     id: "wateraid-documentary",
     title: "WaterAid Documentary",
-    category: "Documentary",
+    category: "Documentary Film",
     year: "2024",
     image: "/thumb_wateraid.jpg",
     youtubeId: "Fi7SSHdEh0c",
@@ -45,15 +45,34 @@ export const PROJECTS = [
   {
     id: "cocacola-documentary",
     title: "Coca-Cola Bangladesh",
-    category: "Documentary",
+    category: "Documentary Film",
     year: "2024",
     image: "/thumb_cocacola.jpg",
     youtubeId: "volZzP3NQDc",
   },
   {
+    id: "docu-fiction",
+    title: "Docu-Fiction Narrative",
+    category: "Docu-Fiction",
+    year: "2024",
+    image: "/thumb_unicef_promo.jpg",
+    youtubeId: "JKJVlORqoZc",
+  },
+];
+
+export const PROMOS = [
+  {
+    id: "brand-promo-feature",
+    title: "Brand Campaign Feature",
+    category: "Promo Video",
+    year: "2024",
+    image: "/thumb_industrial.jpg",
+    youtubeId: "zOxmmwVslW8",
+  },
+  {
     id: "industrial-promo",
     title: "Industrial Promo",
-    category: "Promo",
+    category: "Promo Video",
     year: "2024",
     image: "/thumb_industrial.jpg",
     youtubeId: "MAXQdYv3oBA",
@@ -61,7 +80,7 @@ export const PROJECTS = [
   {
     id: "unicef-campaign-promo",
     title: "UNICEF Campaign Promo",
-    category: "Promo",
+    category: "Campaign Promo",
     year: "2024",
     image: "/thumb_unicef_promo.jpg",
     youtubeId: "b19gkJDFzJg",
@@ -69,7 +88,7 @@ export const PROJECTS = [
   {
     id: "un-promo",
     title: "UN Promo",
-    category: "Promo",
+    category: "Promo Video",
     year: "2024",
     image: "/thumb_un_promo.jpg",
     youtubeId: "7PJSFErxpPg",
@@ -82,6 +101,51 @@ export const PROJECTS = [
     image: "/thumb_book.jpg",
     youtubeId: "-mbrg8c-JDo",
   },
+];
+
+export const SHORTS_REELS = [
+  {
+    id: "viral-short-1",
+    title: "High Retention Social Cut",
+    category: "Shorts / Reels",
+    year: "2024",
+    image: "/thumb_cocacola.jpg",
+    youtubeId: "QOOoricn3Kc",
+    isVertical: true
+  },
+  {
+    id: "dynamic-showreel-cut",
+    title: "Dynamic Showreel Cut",
+    category: "Show-reel",
+    year: "2024",
+    image: "/thumb_unicef_doc.jpg",
+    youtubeId: "EcsPQV2YUrg",
+    isVertical: true
+  }
+];
+
+export const MOTION_GRAPHICS = [
+  {
+    id: "motion-graphic-explainer",
+    title: "Motion Graphics Explainer",
+    category: "After Effects / VFX",
+    year: "2024",
+    image: "/thumb_industrial.jpg",
+    youtubeId: "Kxj3iIa53D4",
+  },
+  {
+    id: "kinetic-translation",
+    title: "Kinetic Typography & Translation",
+    category: "Motion & Translation",
+    year: "2024",
+    image: "/thumb_wateraid.jpg",
+    youtubeId: "OeUXgn6QHwg",
+  }
+];
+
+export const PROJECTS = [
+  ...DOCUMENTARIES,
+  ...PROMOS,
 ];
 
 export const WEB_PROJECTS = [
