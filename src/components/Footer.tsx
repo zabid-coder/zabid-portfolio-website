@@ -30,11 +30,11 @@ export default function Footer() {
             <div>
               <h4 className="text-background/50 tracking-[0.15em] uppercase mb-4 md:mb-8">Capabilities</h4>
               <ul className="flex flex-col gap-3 md:gap-4 text-background/80">
-                <li>Video Editing (DaVinci Resolve)</li>
-                <li>Web & App Development</li>
-                <li>Visual Storytelling</li>
-                <li>AI Animation & Workflows</li>
-                <li>Workflow Automation</li>
+                <li>Video Editing & Post-Production</li>
+                <li>Motion Graphics & VFX (After Effects)</li>
+                <li>Color Grading & Finishing (DaVinci)</li>
+                <li>Web & App Development (React/Next.js)</li>
+                <li>AI Animation & Automation</li>
               </ul>
             </div>
             
