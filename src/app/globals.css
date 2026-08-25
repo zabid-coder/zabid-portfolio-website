@@ -12,12 +12,12 @@
 }
 
 :root {
-  --background: #F5F0E8;
-  --foreground: #141210;
+  --background: #F4EFE6;
+  --foreground: #0F0E0D;
   --accent: #E8402C;
-  --footer: #141210;
-  --secondary: #3A342C;
-  --border: #141210;
+  --footer: #0F0E0D;
+  --secondary: #28241E;
+  --border: #0F0E0D;
 }
 
 body {

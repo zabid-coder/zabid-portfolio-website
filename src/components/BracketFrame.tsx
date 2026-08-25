@@ -13,8 +13,8 @@ export default function BracketFrame({
   children, 
   className = "", 
   bracketColor = "border-foreground",
-  size = 12,
-  strokeWidth = 1,
+  size = 14,
+  strokeWidth = 1.5,
   offset = 8
 }: BracketFrameProps) {
   return (
