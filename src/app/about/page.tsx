@@ -39,17 +39,22 @@ export default function About() {
                 </p>
                 
                 <div className="pt-4 border-t border-foreground/10">
-                  <p className="mb-4">I am currently building two applications:</p>
+                  <p className="mb-4">I am currently building three applications:</p>
                   
                   <div className="space-y-4">
                     <div>
-                      <span className="inline-block border border-foreground/20 px-3 py-1 rounded-sm bg-foreground/5 text-foreground font-bold mr-3 mb-2 md:mb-0">Clip Assassin</span> 
+                      <span className="inline-block border border-foreground/20 px-3 py-1 rounded-sm bg-foreground/5 text-foreground font-bold mr-3 mb-2 md:mb-0">Clip Assassin v2</span> 
                       <span>A professional Python/React toolkit that drastically reduces repetitive tasks in DaVinci Resolve.</span>
                     </div>
                     
                     <div>
                       <span className="inline-block border border-foreground/20 px-3 py-1 rounded-sm bg-foreground/5 text-foreground font-bold mr-3 mb-2 md:mb-0">EchoFlow</span> 
                       <span>A cross-platform upload dashboard designed for content creators.</span>
+                    </div>
+
+                    <div>
+                      <span className="inline-block border border-foreground/20 px-3 py-1 rounded-sm bg-foreground/5 text-foreground font-bold mr-3 mb-2 md:mb-0">Trading Flow</span> 
+                      <span>An algorithmic trading intelligence and market analytics dashboard.</span>
                     </div>
                   </div>
                 </div>
@@ -67,7 +72,7 @@ export default function About() {
                   <div className="text-[10px] font-mono tracking-widest text-secondary uppercase">PROJECTS CUT</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-black mb-1">2</div>
+                  <div className="text-3xl font-black mb-1">3</div>
                   <div className="text-[10px] font-mono tracking-widest text-secondary uppercase">APPS IN DEVELOPMENT</div>
                 </div>
               </div>

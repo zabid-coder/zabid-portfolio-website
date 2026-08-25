@@ -90,7 +90,7 @@ export const WEB_PROJECTS = [
     name: "Creative Portfolio",
     description: "A brutalist, highly interactive portfolio designed for creative professionals.",
     category: "Web / Portfolio",
-    image: "/og-image.jpg",
+    image: "/thumb_creative_portfolio.jpg",
     status: "Live",
     link: "https://zabidalmuttaki.netlify.app"
   },
@@ -99,7 +99,7 @@ export const WEB_PROJECTS = [
     name: "Corporate Landing Page",
     description: "High-conversion landing page optimized for modern businesses.",
     category: "Web / Landing Page",
-    image: "/og-image.jpg",
+    image: "/thumb_landing_page.jpg",
     status: "Template",
     link: "#"
   },
@@ -108,7 +108,7 @@ export const WEB_PROJECTS = [
     name: "Business Portal",
     description: "Full-stack enterprise solution with data dashboard.",
     category: "Web / Corporate",
-    image: "/og-image.jpg",
+    image: "/thumb_corporate_portal.jpg",
     status: "In Development",
     link: "#"
   }
@@ -117,12 +117,12 @@ export const WEB_PROJECTS = [
 export const APPS = [
   {
     id: "clip-assassin",
-    name: "Clip Assassin",
+    name: "Clip Assassin v2",
     description: "A professional automation toolkit for DaVinci Resolve. Built with Python and React to drastically reduce repetitive editing tasks.",
     features: ["Automated edits", "Color grading presets", "Workflow enhancements"],
     image: "/clip_assassin_bd_thumbnail.jpg",
     status: "Available",
-    link: "https://github.com/zabid-coder/clip-assassin"
+    link: "https://github.com/zabid-coder/clip-assassin-v2"
   },
   {
     id: "echoflow",
@@ -131,7 +131,16 @@ export const APPS = [
     features: ["Cross-platform publishing", "Analytics", "Scheduled uploads"],
     image: "/echoflow_bd_thumbnail.jpg",
     status: "Beta",
-    link: "https://github.com/zabid-coder/echoflow"
+    link: "https://github.com/zabid-coder/EchoFlow"
+  },
+  {
+    id: "trading-flow",
+    name: "Trading Flow",
+    description: "A real-time trading flow analysis and market intelligence dashboard built for algorithmic traders.",
+    features: ["Market analytics", "Real-time signals", "Automated tracking"],
+    image: "/trading_flow_thumbnail.jpg",
+    status: "Active",
+    link: "https://github.com/zabid-coder/Trading-Flow"
   }
 ];
 

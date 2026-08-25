@@ -17,7 +17,7 @@ export default function Capabilities() {
       title: "Software Engineering",
       description: "I don't just use tools, I build them. My background in software development allows me to create custom applications, automate tedious workflows, and build interactive web experiences that bridge the gap between creative vision and technical execution.",
       tools: ["React & Next.js", "TypeScript", "Python", "Electron", "Node.js & Supabase"],
-      projects: ["Clip Assassin", "EchoFlow", "Custom Web Portfolios"]
+      projects: ["Clip Assassin v2", "EchoFlow", "Trading Flow", "Custom Web Apps"]
     },
     {
       id: "ai-automation",

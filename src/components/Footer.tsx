@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <Logo variant="dark" className="mb-4 md:mb-8" />
             <p className="font-mono text-xs text-background/70 leading-relaxed max-w-sm">
-              Visual storyteller and developer from Bangladesh. Video editor in DaVinci Resolve, AI Animation creator, and builder of Clip Assassin & EchoFlow.
+              Visual storyteller and developer from Bangladesh. Video editor in DaVinci Resolve, AI Animation creator, and builder of Clip Assassin v2, EchoFlow & Trading Flow.
             </p>
           </div>
 
