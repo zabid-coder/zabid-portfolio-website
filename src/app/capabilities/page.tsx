@@ -13,7 +13,8 @@ import {
   Target, 
   Cpu, 
   ArrowRight,
-  ShieldCheck
+  ShieldCheck,
+  Wrench
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -157,7 +158,7 @@ export default function Capabilities() {
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 w-full">
         
         {/* Header Section */}
-        <div className="mb-20 md:mb-28">
+        <div className="mb-20 md:mb-24">
           <div className="text-[10px] font-mono tracking-widest text-secondary uppercase mb-4">02 — CLIENT SOLUTIONS & CAPABILITIES</div>
           <motion.h1 
             className="text-4xl sm:text-6xl md:text-7xl lg:text-[6.5rem] font-black tracking-tighter uppercase mb-6 leading-[0.9]"
@@ -193,7 +194,7 @@ export default function Capabilities() {
         </div>
 
         {/* Why Clients Choose Zabid Section */}
-        <div className="mb-28 py-12 border-y-2 border-foreground">
+        <div className="mb-24 py-12 border-y-2 border-foreground">
           <div className="text-center mb-10">
             <div className="text-[10px] font-mono tracking-widest text-secondary uppercase mb-2">THE VALUE PROPOSITION</div>
             <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight">Why Global & Local Clients Hire Me</h2>
@@ -202,10 +203,12 @@ export default function Capabilities() {
             {valueProps.map((prop, idx) => {
               const Icon = prop.icon;
               return (
-                <BracketFrame key={idx} className="p-6 bg-foreground/5 border-transparent h-full" bracketColor="border-foreground">
-                  <Icon size={28} className="text-accent mb-4" />
-                  <h4 className="font-bold text-sm uppercase tracking-tight mb-2 text-foreground">{prop.title}</h4>
-                  <p className="font-mono text-xs text-secondary leading-relaxed">{prop.desc}</p>
+                <BracketFrame key={idx} className="p-6 bg-foreground/5 border-transparent h-full flex flex-col justify-between" bracketColor="border-foreground">
+                  <div>
+                    <Icon size={26} className="text-accent mb-4" />
+                    <h4 className="font-bold text-sm uppercase tracking-tight mb-2 text-foreground">{prop.title}</h4>
+                    <p className="font-mono text-xs text-secondary leading-relaxed">{prop.desc}</p>
+                  </div>
                 </BracketFrame>
               );
             })}
@@ -213,9 +216,10 @@ export default function Capabilities() {
         </div>
 
         {/* Detailed Services Breakdown */}
-        <div id="services" className="flex flex-col gap-24 mb-32">
-          <div className="border-b-2 border-foreground pb-4">
+        <div id="services" className="flex flex-col gap-20 mb-32">
+          <div className="border-b-2 border-foreground pb-4 flex justify-between items-end">
             <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight">Core Disciplines & Deliverables</h2>
+            <span className="font-mono text-xs text-secondary hidden sm:inline-block">[5 CORE DISCIPLINES]</span>
           </div>
 
           {services.map((service, idx) => {
@@ -227,58 +231,84 @@ export default function Capabilities() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8 }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start border-b border-foreground/10 pb-20 last:border-0"
+                className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch border-b border-foreground/10 pb-20 last:border-0"
               >
-                {/* Left Col: Header & Problem */}
-                <div className="lg:col-span-5">
-                  <div className="flex items-center gap-2 text-accent font-mono text-xs font-bold uppercase tracking-widest mb-3">
-                    <Icon size={16} />
-                    {service.badge}
-                  </div>
-                  <h3 className="text-2xl md:text-4xl font-black tracking-tight uppercase mb-6 text-foreground">{service.title}</h3>
-                  
-                  <div className="bg-foreground/5 p-4 border-l-4 border-accent rounded-sm mb-6">
-                    <div className="text-[10px] font-mono font-bold uppercase tracking-widest text-foreground mb-1">Problem Solved:</div>
-                    <p className="font-mono text-xs text-secondary leading-relaxed">{service.problemSolved}</p>
+                {/* Left Col: Header, Problem Solved, & Description */}
+                <div className="lg:col-span-5 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-2 text-accent font-mono text-xs font-bold uppercase tracking-widest mb-3">
+                      <Icon size={16} />
+                      {service.badge}
+                    </div>
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight uppercase mb-5 text-foreground leading-[1.05]">
+                      {service.title}
+                    </h3>
+                    
+                    {/* Problem Solved Box */}
+                    <div className="bg-foreground/[0.04] p-4 border-l-2 border-accent rounded-sm mb-6">
+                      <div className="text-[10px] font-mono font-bold uppercase tracking-widest text-foreground mb-1.5 flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                        Problem Solved:
+                      </div>
+                      <p className="font-mono text-xs text-secondary leading-relaxed">{service.problemSolved}</p>
+                    </div>
+
+                    <p className="font-mono text-xs md:text-sm text-secondary leading-relaxed mb-6">
+                      {service.description}
+                    </p>
                   </div>
 
-                  <p className="font-mono text-xs md:text-sm text-secondary leading-relaxed mb-6">
-                    {service.description}
-                  </p>
-
-                  <div className="text-[10px] font-mono uppercase text-secondary tracking-widest">
-                    <strong className="text-foreground">Ideal For:</strong> {service.idealFor}
+                  {/* Ideal For Footer */}
+                  <div className="pt-4 border-t border-foreground/10 text-[11px] font-mono text-secondary">
+                    <span className="font-bold text-foreground uppercase tracking-wider block mb-1">Ideal For:</span>
+                    <span className="leading-relaxed">{service.idealFor}</span>
                   </div>
                 </div>
                 
-                {/* Right Col: Deliverables & Toolkit */}
-                <div className="lg:col-span-7 flex flex-col gap-6">
-                  <BracketFrame className="p-6 bg-foreground/5 border-transparent" bracketColor="border-foreground">
-                    <h4 className="text-xs font-bold text-foreground uppercase tracking-widest mb-4 flex items-center gap-2">
-                      <CheckCircle2 size={16} className="text-accent" />
-                      Exact Client Deliverables
-                    </h4>
-                    <ul className="flex flex-col gap-3 font-mono text-xs text-secondary">
-                      {service.deliverables.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2.5">
-                          <span className="text-accent font-bold">✓</span>
-                          <span className="leading-relaxed text-foreground/90">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </BracketFrame>
-
-                  <BracketFrame className="p-6 bg-foreground/5 border-transparent" bracketColor="border-foreground">
-                    <h4 className="text-[10px] font-bold text-foreground uppercase tracking-widest mb-3">
-                      Production Toolkit & Software
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {service.toolkit.map((tool, i) => (
-                        <span key={i} className="font-mono text-[11px] px-3 py-1 bg-background border border-foreground/20 rounded-sm text-foreground">
-                          {tool}
+                {/* Right Col: UNIFIED Bracket Frame Container */}
+                <div className="lg:col-span-7 flex flex-col h-full">
+                  <BracketFrame className="p-6 md:p-8 bg-foreground/[0.03] border-transparent h-full flex flex-col justify-between" bracketColor="border-foreground">
+                    
+                    {/* Top: Exact Client Deliverables */}
+                    <div>
+                      <div className="flex items-center justify-between border-b border-foreground/10 pb-4 mb-6">
+                        <h4 className="text-xs md:text-sm font-bold text-foreground uppercase tracking-widest flex items-center gap-2.5">
+                          <CheckCircle2 size={16} className="text-accent" />
+                          Exact Client Deliverables
+                        </h4>
+                        <span className="text-[10px] font-mono text-accent font-bold uppercase tracking-widest">
+                          [Verified Output]
                         </span>
-                      ))}
+                      </div>
+
+                      <ul className="flex flex-col gap-3.5 font-mono text-xs">
+                        {service.deliverables.map((item, i) => (
+                          <li key={i} className="flex items-start gap-3">
+                            <span className="text-accent font-bold mt-0.5 shrink-0">✓</span>
+                            <span className="leading-relaxed text-foreground/90 font-medium">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
+
+                    {/* Bottom: Production Toolkit & Software */}
+                    <div className="mt-8 pt-6 border-t border-foreground/10">
+                      <div className="flex items-center gap-2 text-[10px] font-mono font-bold text-secondary uppercase tracking-widest mb-3">
+                        <Wrench size={12} className="text-accent" />
+                        Production Toolkit & Software
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {service.toolkit.map((tool, i) => (
+                          <span 
+                            key={i} 
+                            className="font-mono text-[11px] px-3 py-1.5 bg-background border border-foreground/15 rounded-sm text-foreground hover:border-accent transition-colors"
+                          >
+                            {tool}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
                   </BracketFrame>
                 </div>
               </motion.div>
@@ -296,15 +326,15 @@ export default function Capabilities() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {workflowSteps.map((step, idx) => (
-              <div key={idx} className="relative flex flex-col justify-between p-6 bg-foreground/5 border border-foreground/10 rounded-sm">
+              <BracketFrame key={idx} className="p-6 bg-foreground/5 border-transparent flex flex-col justify-between h-full" bracketColor="border-foreground">
                 <div>
                   <div className="text-3xl font-black text-accent font-mono mb-4">{step.step}</div>
                   <h4 className="text-lg font-bold uppercase tracking-tight mb-3 text-foreground">{step.title}</h4>
                   <p className="font-mono text-xs text-secondary leading-relaxed">{step.description}</p>
                 </div>
-              </div>
+              </BracketFrame>
             ))}
           </div>
         </div>
