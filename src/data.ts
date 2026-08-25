@@ -84,7 +84,37 @@ export const PROJECTS = [
   },
 ];
 
-export const PRODUCTS = [
+export const WEB_PROJECTS = [
+  {
+    id: "web-portfolio",
+    name: "Creative Portfolio",
+    description: "A brutalist, highly interactive portfolio designed for creative professionals.",
+    category: "Web / Portfolio",
+    image: "/og-image.jpg",
+    status: "Live",
+    link: "https://zabidalmuttaki.netlify.app"
+  },
+  {
+    id: "web-landing",
+    name: "Corporate Landing Page",
+    description: "High-conversion landing page optimized for modern businesses.",
+    category: "Web / Landing Page",
+    image: "/og-image.jpg",
+    status: "Template",
+    link: "#"
+  },
+  {
+    id: "web-corporate",
+    name: "Business Portal",
+    description: "Full-stack enterprise solution with data dashboard.",
+    category: "Web / Corporate",
+    image: "/og-image.jpg",
+    status: "In Development",
+    link: "#"
+  }
+];
+
+export const APPS = [
   {
     id: "clip-assassin",
     name: "Clip Assassin",

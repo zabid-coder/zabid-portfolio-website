@@ -5,16 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { Play, X } from "lucide-react";
 import BracketFrame from "@/components/BracketFrame";
-import { PROJECTS, PRODUCTS, ANIMATIONS } from "@/data";
+import { PROJECTS, WEB_PROJECTS, APPS, ANIMATIONS } from "@/data";
 import { motion } from "framer-motion";
 
 export default function Projects() {
   const [activeVideoUrl, setActiveVideoUrl] = useState<string | null>(null);
 
-  const allWork = [
-    ...PROJECTS.map(p => ({ ...p, type: 'project' as const })), 
-    ...PRODUCTS.map(p => ({ ...p, type: 'product' as const }))
-  ];
+  // Removed unused allWork array
 
   return (
     <div className="min-h-screen w-full max-w-[1440px] mx-auto px-8 pt-40 pb-32">
@@ -92,17 +89,19 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* Development Sub-section */}
+      {/* Web & App Development Sub-section */}
       <div className="mb-24">
-        <h3 className="text-xl font-mono font-bold tracking-widest uppercase mb-8 border-b-2 border-foreground pb-4">Development</h3>
+        <h3 className="text-xl font-mono font-bold tracking-widest uppercase mb-8 border-b-2 border-foreground pb-4">Web & App Development</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {PRODUCTS.map(p => ({ ...p, type: 'product' as const })).map((work, idx) => (
-            <Link key={work.id} href={`/#${work.id}`} className="group cursor-pointer block">
+          
+          {/* Web Projects */}
+          {WEB_PROJECTS.map((work) => (
+            <a key={work.id} href={work.link} target="_blank" rel="noopener noreferrer" className="group cursor-pointer block">
               <BracketFrame className="p-4 bg-transparent transition-colors group-hover:bg-background" bracketColor="border-foreground">
                 <div className="flex justify-between items-center text-[10px] font-mono uppercase tracking-widest mb-4">
-                  <span className="text-secondary">Development</span>
+                  <span className="text-secondary">Web Development</span>
                   <span className="text-foreground flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent inline-block"></span> LIVE
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent inline-block"></span> {work.status.toUpperCase()}
                   </span>
                 </div>
                 
@@ -117,13 +116,44 @@ export default function Projects() {
                 </div>
                 
                 <div className="text-[10px] font-mono text-secondary uppercase tracking-widest mb-2">
-                  SOFTWARE / {work.status}
+                  {work.category}
                 </div>
                 <h3 className="text-lg font-bold tracking-tight uppercase text-foreground">
                   {work.name}
                 </h3>
               </BracketFrame>
-            </Link>
+            </a>
+          ))}
+
+          {/* App Projects */}
+          {APPS.map((work) => (
+            <a key={work.id} href={work.link} target="_blank" rel="noopener noreferrer" className="group cursor-pointer block">
+              <BracketFrame className="p-4 bg-transparent transition-colors group-hover:bg-background" bracketColor="border-foreground">
+                <div className="flex justify-between items-center text-[10px] font-mono uppercase tracking-widest mb-4">
+                  <span className="text-secondary">App Development</span>
+                  <span className="text-foreground flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent inline-block"></span> {work.status.toUpperCase()}
+                  </span>
+                </div>
+                
+                <div className="relative w-full overflow-hidden bg-foreground/5 mb-4 aspect-video">
+                  <Image
+                    src={work.image}
+                    alt={work.name}
+                    fill
+                    className="object-cover transform group-hover:scale-105 transition-transform duration-[1.5s]"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                
+                <div className="text-[10px] font-mono text-secondary uppercase tracking-widest mb-2">
+                  SOFTWARE / {work.status.toUpperCase()}
+                </div>
+                <h3 className="text-lg font-bold tracking-tight uppercase text-foreground">
+                  {work.name}
+                </h3>
+              </BracketFrame>
+            </a>
           ))}
         </div>
       </div>
