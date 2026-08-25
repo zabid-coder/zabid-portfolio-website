@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import ClientLogos from '@/components/ClientLogos';
 
 export default function LandingIntro() {
   const [hovered, setHovered] = useState<'editor' | 'developer' | null>(null);
@@ -102,15 +103,12 @@ export default function LandingIntro() {
           </h1>
 
           {/* Subtext + client logos */}
-          <div className="w-full flex flex-col md:flex-row justify-between items-center md:items-end mt-2 2xl:mt-4 gap-4 md:gap-0 pointer-events-auto">
-            <p className="text-foreground/80 font-mono text-[10px] md:text-xs 2xl:text-sm tracking-widest bg-background/50 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none px-2 md:px-0 rounded">
+          <div className="w-full flex flex-col md:flex-row justify-between items-center md:items-end mt-3 2xl:mt-4 gap-3 md:gap-8 pointer-events-auto">
+            <p className="text-foreground/80 font-mono text-[10px] md:text-xs 2xl:text-sm tracking-widest bg-background/50 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none px-2 md:px-0 rounded shrink-0">
               FREELANCE, IN BANGLADESH.
             </p>
-            <div className="flex items-center gap-3 md:gap-6 2xl:gap-8 opacity-60 text-[10px] md:text-xs 2xl:text-sm font-bold uppercase tracking-widest bg-background/50 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none px-2 md:px-0 rounded">
-              <span>UNICEF</span>
-              <span>World Bank</span>
-              <span>BRAC</span>
-              <span>WaterAid</span>
+            <div className="w-full md:w-auto overflow-hidden bg-background/40 backdrop-blur-sm md:bg-transparent px-2 py-1 rounded">
+              <ClientLogos />
             </div>
           </div>
         </div>
