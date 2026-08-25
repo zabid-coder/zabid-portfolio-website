@@ -80,8 +80,8 @@ export default function LandingIntro() {
         {/* Z-10 BACK LAYER (Solid text behind portrait) */}
         <div className="relative z-10 flex flex-col items-center w-full pointer-events-none">
           <h1 
-            className={`font-black uppercase text-[12vw] md:text-[8.5vw] leading-[0.9] tracking-tight whitespace-nowrap transition-colors duration-500 pointer-events-auto cursor-pointer ${
-              hovered === 'editor' ? 'text-accent' : (hovered === 'developer' ? 'text-background' : 'text-foreground')
+            className={`font-black uppercase text-[12vw] md:text-[8.5vw] leading-[0.9] tracking-tight whitespace-nowrap transition-all duration-500 pointer-events-auto cursor-pointer ${
+              hovered === 'editor' ? 'text-accent scale-105' : (hovered === 'developer' ? 'text-background scale-100' : 'text-foreground scale-100')
             }`}
             style={{ filter: hovered === 'developer' ? blackShadow : 'none' }}
             onMouseEnter={() => setHovered('editor')}
@@ -117,7 +117,7 @@ export default function LandingIntro() {
         <div className="absolute top-0 left-0 w-full h-full z-30 flex flex-col items-center pointer-events-none px-4 mix-blend-multiply" aria-hidden="true">
           <h1 
             className={`font-black uppercase text-[12vw] md:text-[8.5vw] leading-[0.9] tracking-tight whitespace-nowrap transition-all duration-500 text-white ${
-              hovered === 'editor' ? 'opacity-100' : 'opacity-0'
+              hovered === 'editor' ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
             }`}
             style={{ filter: redShadow }}
           >
