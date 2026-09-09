@@ -585,18 +585,18 @@ export const UGC_VIDEOS = [
     youtubeId: "Ltyc0e5F5ZY",
     client: "Puproot",
     aspectRatio: "9/16" as const,
-    description: "High-converting UGC video ad designed for vertical social feeds with fast hook retention.",
+    description: "High-converting vertical 9:16 UGC video ad with fast hook retention.",
   },
   {
     id: "ugc-2",
     title: "Australian POV Surfing (UGC)",
-    category: "UGC / Creator Ad",
+    category: "UGC / Creator Content",
     year: "2025",
     image: "https://i.ytimg.com/vi/7cr_QteAVk4/hqdefault.jpg",
     youtubeId: "7cr_QteAVk4",
     client: "Creator Brand",
-    aspectRatio: "9/16" as const,
-    description: "Dynamic POV lifestyle UGC edit tailored for viral social retention.",
+    aspectRatio: "16/9" as const,
+    description: "Dynamic POV lifestyle UGC edit in widescreen 16:9 format.",
   },
   {
     id: "ugc-3",
@@ -607,9 +607,11 @@ export const UGC_VIDEOS = [
     youtubeId: "rzVbEuvcUfc",
     client: "E-Commerce / Creator",
     aspectRatio: "9/16" as const,
-    description: "Engaging talking head creator review format optimized for TikTok & Reels.",
+    description: "Engaging talking head creator review format in vertical 9:16.",
   },
-];export const EXPERIENCE = [
+];
+
+export const EXPERIENCE = [
   {
     role: "Senior Video Editor",
     company: "DRIK PICTURE LIBRARY LTD.",
