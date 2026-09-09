@@ -119,6 +119,16 @@ export default function Projects() {
                       <Play size={18} fill="currentColor" className="ml-0.5" />
                     </div>
                   </div>
+                  
+                  {/* AI Generated Badge Tag */}
+                  {work.isAiGenerated && (
+                    <div className="absolute top-2 left-2 bg-accent text-white px-2 py-0.5 rounded text-[9px] font-mono font-bold tracking-wider uppercase shadow-md flex items-center gap-1 z-10">
+                      <Sparkles size={10} />
+                      <span>100% AI GENERATED</span>
+                    </div>
+                  )}
+
+                  {/* Ratio badge */}
                   {ratio !== '16/9' && (
                     <div className="absolute top-2 right-2 bg-black/75 px-1.5 py-0.5 rounded text-[9px] font-mono text-white font-bold">
                       {ratio === '9/16' ? '9:16' : '1:1'}
@@ -130,8 +140,14 @@ export default function Projects() {
           </div>
           
           <div>
-            <div className="text-[10px] font-mono text-secondary uppercase tracking-widest mb-1.5">
-              {work.category} / {work.year}
+            <div className="text-[10px] font-mono text-secondary uppercase tracking-widest mb-1.5 flex items-center justify-between">
+              <span>{work.category} / {work.year}</span>
+              {work.isAiGenerated && (
+                <span className="text-accent font-bold text-[9px] font-mono tracking-wider flex items-center gap-1">
+                  <Sparkles size={10} />
+                  FULL AI
+                </span>
+              )}
             </div>
             <h3 
               onClick={() => !isPlaying && setPlayingId(work.id)}
@@ -139,6 +155,11 @@ export default function Projects() {
             >
               {work.title}
             </h3>
+            {work.description && (
+              <p className="mt-1.5 font-mono text-xs text-secondary leading-relaxed">
+                {work.description}
+              </p>
+            )}
           </div>
         </BracketFrame>
       </div>

@@ -579,13 +579,14 @@ export const UGC_VIDEOS = [
   {
     id: "ugc-1",
     title: "Puproot UGC Ad",
-    category: "UGC / Creator Ad",
+    category: "Full AI UGC Ad",
     year: "2025",
     image: "https://i.ytimg.com/vi/Ltyc0e5F5ZY/hqdefault.jpg",
     youtubeId: "Ltyc0e5F5ZY",
     client: "Puproot",
     aspectRatio: "9/16" as const,
-    description: "High-converting vertical 9:16 UGC video ad with fast hook retention.",
+    isAiGenerated: true,
+    description: "100% Full AI Generated vertical UGC ad created with hyper-realistic AI visuals, synthetic voiceover, and high-retention hook editing.",
   },
   {
     id: "ugc-2",
