@@ -145,7 +145,8 @@ export default function LandingIntro() {
       >
         <div ref={portraitRef} className="relative w-full h-full" style={{ willChange: 'transform' }}>
           <Image
-            src="/Zabid%20Al%20Muttaki.png"
+            src="/zabid_portrait_transparent.png"
+            unoptimized
             alt="Zabid Al Muttaki"
             fill
             priority
