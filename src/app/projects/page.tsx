@@ -4,20 +4,21 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Play, X, ExternalLink, Film, Sparkles, Smartphone, Layers, Code, Clapperboard } from 'lucide-react';
 import BracketFrame from '@/components/BracketFrame';
-import { DOCUMENTARIES, PROMOS, SHORTS_REELS, MOTION_GRAPHICS, WEB_PROJECTS, APPS, ANIMATIONS } from '@/data';
+import { DOCUMENTARIES, PROMOS, SHORTS_REELS, MOTION_GRAPHICS, WEB_PROJECTS, APPS, ANIMATIONS, UGC_VIDEOS } from '@/data';
 import { motion, AnimatePresence } from 'framer-motion';
 
-type CategoryTab = 'all' | 'documentaries' | 'promos' | 'shorts' | 'motion' | 'web-apps' | 'ai';
+type CategoryTab = 'all' | 'documentaries' | 'promos' | 'shorts' | 'ugc' | 'motion' | 'web-apps' | 'ai';
 
 export default function Projects() {
   const [activeTab, setActiveTab] = useState<CategoryTab>('all');
   const [activeVideoUrl, setActiveVideoUrl] = useState<string | null>(null);
 
   const tabs: { id: CategoryTab; label: string; count: number; icon: any }[] = [
-    { id: 'all', label: 'All Works', count: DOCUMENTARIES.length + PROMOS.length + SHORTS_REELS.length + MOTION_GRAPHICS.length + WEB_PROJECTS.length + APPS.length + ANIMATIONS.length, icon: Clapperboard },
+    { id: 'all', label: 'All Works', count: DOCUMENTARIES.length + PROMOS.length + SHORTS_REELS.length + UGC_VIDEOS.length + MOTION_GRAPHICS.length + WEB_PROJECTS.length + APPS.length + ANIMATIONS.length, icon: Clapperboard },
     { id: 'documentaries', label: 'Documentaries', count: DOCUMENTARIES.length, icon: Film },
     { id: 'promos', label: 'Promos & Commercials', count: PROMOS.length, icon: Sparkles },
     { id: 'shorts', label: 'Shorts & Reels (9:16)', count: SHORTS_REELS.length, icon: Smartphone },
+    { id: 'ugc', label: 'UGC & Creator Content', count: UGC_VIDEOS.length, icon: Smartphone },
     { id: 'motion', label: 'Motion Graphics', count: MOTION_GRAPHICS.length, icon: Layers },
     { id: 'web-apps', label: 'Web & Apps', count: WEB_PROJECTS.length + APPS.length, icon: Code },
     { id: 'ai', label: 'AI Animation', count: ANIMATIONS.length, icon: Sparkles }
@@ -28,7 +29,7 @@ export default function Projects() {
       
       {/* Header Section */}
       <div className="mb-16 md:mb-20 flex flex-col items-center text-center">
-        <div className="text-[10px] font-mono tracking-widest text-secondary uppercase mb-4">SELECTED WORKS & ARCHIVE</div>
+        <div className="text-[10px] font-mono tracking-widest text-secondary uppercase mb-4">FEATURED WORK & ARCHIVE</div>
         <h1 className="text-5xl md:text-[80px] font-black tracking-tighter uppercase leading-[0.9]">THE WORK</h1>
         <motion.p 
           className="mt-6 max-w-2xl font-mono text-xs md:text-sm text-secondary leading-relaxed mb-10 px-4"
@@ -247,7 +248,58 @@ export default function Projects() {
           )}
 
           {/* 4. MOTION GRAPHICS & VFX */}
-          {(activeTab === 'all' || activeTab === 'motion') && (
+          
+            {/* UGC Section */}
+            {(activeTab === 'all' || activeTab === 'ugc') && (
+              <div className="flex flex-col gap-6">
+                <div className="flex justify-between items-center border-b border-foreground/10 pb-3">
+                  <h3 className="text-xl font-bold uppercase tracking-tight flex items-center gap-2 text-foreground">
+                    <Smartphone size={18} className="text-accent" />
+                    UGC & Creator Content
+                  </h3>
+                  <span className="font-mono text-xs text-secondary">[{UGC_VIDEOS.length} PROJECTS]</span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {UGC_VIDEOS.map((item) => (
+                    <div 
+                      key={item.id}
+                      onClick={() => setActiveVideoUrl(`https://www.youtube.com/embed/${item.youtubeId}?autoplay=1`)}
+                      className="group cursor-pointer flex flex-col justify-between p-4 bg-foreground/[0.03] border border-foreground/15 rounded-sm hover:border-accent transition-all duration-300"
+                    >
+                      <div className="relative aspect-[16/9] w-full overflow-hidden rounded-sm bg-foreground/5 mb-4">
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          unoptimized
+                        />
+                        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                          <div className="w-12 h-12 rounded-full bg-accent/90 text-white flex items-center justify-center transform group-hover:scale-110 transition-transform shadow-lg">
+                            <Play size={20} fill="currentColor" className="ml-0.5" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="flex justify-between items-start gap-2 mb-1">
+                          <h4 className="font-bold text-sm text-foreground uppercase tracking-tight line-clamp-1 group-hover:text-accent transition-colors">
+                            {item.title}
+                          </h4>
+                          <span className="text-[10px] font-mono text-accent font-bold shrink-0">{item.year}</span>
+                        </div>
+                        <p className="font-mono text-xs text-secondary line-clamp-2 leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {(activeTab === 'all' || activeTab === 'motion') && (
             <section>
               <div className="flex justify-between items-end mb-8 border-b-2 border-foreground pb-4">
                 <h3 className="text-xl md:text-2xl font-mono font-bold tracking-widest uppercase flex items-center gap-3">

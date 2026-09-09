@@ -323,7 +323,7 @@ ${formData.description || 'Looking forward to discussing the project.'}`;
                       className="flex-1 flex items-center justify-center gap-2.5 bg-background text-foreground px-6 py-4 text-xs font-mono font-bold tracking-widest uppercase hover:bg-foreground hover:text-background transition-colors border-2 border-foreground shadow-sm"
                     >
                       <Mail size={16} />
-                      Send via Email Client
+                      Send via Email
                     </button>
                   </div>
 

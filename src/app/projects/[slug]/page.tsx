@@ -62,7 +62,7 @@ export default function CaseStudy() {
               The narrative required a delicate touch, ensuring that the human element remained front and center without being overshadowed by the production value.
             </p>
             <p>
-              We needed to design a workflow that allowed for rapid iteration while maintaining a cinematic quality standard throughout the entire pipeline.
+              I designed a dedicated workflow that allowed for rapid iteration while maintaining a cinematic quality standard throughout the entire pipeline.
             </p>
           </div>
         </div>

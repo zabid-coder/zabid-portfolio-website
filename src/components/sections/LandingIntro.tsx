@@ -71,7 +71,7 @@ export default function LandingIntro() {
       
       {/* Intro line */}
       <p className="text-[10px] md:text-xs 2xl:text-sm font-mono tracking-widest font-bold uppercase text-foreground/80 mb-6 z-10">
-        Hi I am Zabid Al Muttaki
+        Hi, I’m Zabid Al Muttaki.
       </p>
 
       {/* Headline & Subtext Wrapper */}
@@ -102,12 +102,12 @@ export default function LandingIntro() {
             & Developer
           </h1>
 
-          {/* Subtext + client logos */}
-          <div className="w-full flex flex-col md:flex-row justify-between items-center md:items-end mt-3 2xl:mt-4 gap-3 md:gap-8 pointer-events-auto">
-            <p className="text-foreground/80 font-mono text-[10px] md:text-xs 2xl:text-sm tracking-widest bg-background/50 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none px-2 md:px-0 rounded shrink-0">
-              FREELANCE, IN BANGLADESH.
+                    {/* Subtext + client logos perfectly aligned on baseline */}
+          <div className="w-full flex flex-col md:flex-row justify-between items-center mt-4 2xl:mt-6 gap-3 md:gap-8 pointer-events-auto">
+            <p className="text-foreground/90 font-mono text-[10px] md:text-xs 2xl:text-sm tracking-widest uppercase font-bold shrink-0">
+              BASED IN DHAKA, AVAILABLE WORLDWIDE.
             </p>
-            <div className="w-full md:w-auto overflow-hidden bg-background/40 backdrop-blur-sm md:bg-transparent px-2 py-1 rounded">
+            <div className="w-full md:w-auto overflow-hidden flex items-center">
               <ClientLogos />
             </div>
           </div>
@@ -164,7 +164,7 @@ export default function LandingIntro() {
             hovered === 'editor' ? 'bg-accent text-white border-accent' : 'bg-foreground text-background'
           }`}
         >
-          You need an editor
+          Start a video project
         </button>
         <button
           onClick={() => handleNavigation('/contact?service=dev')}
@@ -174,7 +174,7 @@ export default function LandingIntro() {
             hovered === 'developer' ? 'bg-accent text-white border-accent' : 'bg-background text-foreground border-foreground'
           }`}
         >
-          You need a developer
+          Start a development project
         </button>
       </div>
       {/* Custom Hover Cursor Tracker */}

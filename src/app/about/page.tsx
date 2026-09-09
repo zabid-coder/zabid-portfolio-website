@@ -46,7 +46,7 @@ export default function About() {
             <div className="mt-4 pt-4 border-t border-foreground/10 font-mono text-xs space-y-2">
               <div className="flex justify-between text-secondary">
                 <span>ROLE</span>
-                <span className="font-bold text-foreground">Senior Editor & Developer</span>
+                <span className="font-bold text-foreground">Senior Video Editor & Developer</span>
               </div>
               <div className="flex justify-between text-secondary">
                 <span>AFFILIATION</span>
@@ -230,7 +230,7 @@ export default function About() {
             <div className="pt-12 border-t-2 border-foreground text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-6">
               <div>
                 <h3 className="text-2xl font-black tracking-tight uppercase text-foreground">Have a project in mind?</h3>
-                <p className="font-mono text-xs text-secondary mt-1">Let's discuss how we can bring your narrative to life.</p>
+                <p className="font-mono text-xs text-secondary mt-1">Let's discuss how I can bring your narrative to life.</p>
               </div>
               <Link 
                 href="/contact" 

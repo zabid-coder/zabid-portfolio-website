@@ -111,7 +111,7 @@ export default function Capabilities() {
     {
       step: '01',
       title: 'Brief & Alignment',
-      description: 'We align on project goals, audience demographics, reference videos, deliverables, and timeline milestones before a single cut is made.'
+      description: 'I align directly with you on project goals, target audience, reference benchmarks, exact deliverables, and timeline milestones before starting production.'
     },
     {
       step: '02',
@@ -366,7 +366,7 @@ export default function Capabilities() {
               href="/projects" 
               className="inline-flex items-center gap-3 border-2 border-background text-background px-8 py-4 text-xs font-mono font-bold tracking-widest uppercase hover:bg-background hover:text-foreground transition-colors"
             >
-              Explore Client Archive
+              View Featured Work
             </Link>
           </div>
         </motion.div>
