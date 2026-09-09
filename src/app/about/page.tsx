@@ -30,7 +30,7 @@ export default function About() {
       <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
         
         {/* Left Sticky Portrait Column */}
-        <div className="lg:col-span-5 relative lg:sticky top-32 mb-8 lg:mb-0 w-full">
+        <div className="lg:col-span-5 relative lg:sticky lg:top-32 top-0 mb-12 lg:mb-0 w-full">
           <BracketFrame className="p-4 lg:p-6 mx-auto w-full max-w-md bg-foreground/[0.02]" bracketColor="border-foreground" offset={0}>
             <div className="relative aspect-[4/5] w-full bg-foreground/5 border border-foreground/10 overflow-hidden rounded-sm">
               <Image 
