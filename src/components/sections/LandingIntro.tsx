@@ -155,40 +155,41 @@ export default function LandingIntro() {
         </div>
       </div>
 
-      {/* Round Explore Work Action Button */}
-      <div className="relative z-20 pointer-events-auto mb-4 md:mb-5 flex justify-center">
+      {/* Bottom Action Controls Group */}
+      <div className="relative mt-auto mb-6 md:mb-8 z-30 pointer-events-auto flex flex-col items-center gap-3">
+        {/* Round Explore Work Action Button */}
         <button
           onClick={() => handleNavigation('/projects')}
-          className="group flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-background/90 hover:bg-foreground hover:text-background border-2 border-foreground/30 hover:border-foreground backdrop-blur-md font-mono text-[10px] md:text-xs uppercase tracking-widest font-bold transition-all duration-300 shadow-xl hover:scale-105 active:scale-95"
+          className="group flex items-center gap-2.5 px-6 py-2 rounded-full bg-background/95 hover:bg-foreground hover:text-background border-2 border-foreground/30 hover:border-foreground backdrop-blur-md font-mono text-[10px] md:text-xs uppercase tracking-widest font-bold transition-all duration-300 shadow-xl hover:scale-105 active:scale-95"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-accent group-hover:bg-white animate-pulse"></span>
           <span>Explore Work</span>
           <ArrowRight size={13} className="text-secondary group-hover:text-background group-hover:translate-x-1 transition-all" />
         </button>
-      </div>
 
-      {/* Choice buttons */}
-      <div className="relative flex flex-col sm:flex-row gap-0 mt-auto mb-8 md:mb-0 z-20 pointer-events-auto shadow-2xl">
-        <button
-          onClick={() => handleNavigation('/contact?service=video')}
-          onMouseEnter={() => setHovered('editor')}
-          onMouseLeave={() => setHovered(null)}
-          className={`px-8 py-4 md:px-10 2xl:px-12 2xl:py-5 text-[10px] md:text-xs 2xl:text-sm font-mono font-bold tracking-widest uppercase transition-all duration-300 border border-transparent active:scale-95 active:bg-accent active:text-white ${
-            hovered === 'editor' ? 'bg-accent text-white border-accent' : 'bg-foreground text-background'
-          }`}
-        >
-          Start a video project
-        </button>
-        <button
-          onClick={() => handleNavigation('/contact?service=dev')}
-          onMouseEnter={() => setHovered('developer')}
-          onMouseLeave={() => setHovered(null)}
-          className={`px-8 py-4 md:px-10 2xl:px-12 2xl:py-5 text-[10px] md:text-xs 2xl:text-sm font-mono font-bold tracking-widest uppercase transition-all duration-300 border active:scale-95 active:bg-accent active:text-white active:border-accent ${
-            hovered === 'developer' ? 'bg-accent text-white border-accent' : 'bg-background text-foreground border-foreground'
-          }`}
-        >
-          Start a development project
-        </button>
+        {/* Choice buttons */}
+        <div className="flex flex-col sm:flex-row gap-0 shadow-2xl">
+          <button
+            onClick={() => handleNavigation('/contact?service=video')}
+            onMouseEnter={() => setHovered('editor')}
+            onMouseLeave={() => setHovered(null)}
+            className={`px-8 py-4 md:px-10 2xl:px-12 2xl:py-5 text-[10px] md:text-xs 2xl:text-sm font-mono font-bold tracking-widest uppercase transition-all duration-300 border border-transparent active:scale-95 active:bg-accent active:text-white ${
+              hovered === 'editor' ? 'bg-accent text-white border-accent' : 'bg-foreground text-background'
+            }`}
+          >
+            Start a video project
+          </button>
+          <button
+            onClick={() => handleNavigation('/contact?service=dev')}
+            onMouseEnter={() => setHovered('developer')}
+            onMouseLeave={() => setHovered(null)}
+            className={`px-8 py-4 md:px-10 2xl:px-12 2xl:py-5 text-[10px] md:text-xs 2xl:text-sm font-mono font-bold tracking-widest uppercase transition-all duration-300 border active:scale-95 active:bg-accent active:text-white active:border-accent ${
+              hovered === 'developer' ? 'bg-accent text-white border-accent' : 'bg-background text-foreground border-foreground'
+            }`}
+          >
+            Start a development project
+          </button>
+        </div>
       </div>
       {/* Custom Hover Cursor Tracker */}
       <div 
