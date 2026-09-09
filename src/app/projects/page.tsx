@@ -244,8 +244,8 @@ export default function Projects() {
           Curated visual narratives, native 9:16 vertical creator edits, 16:9 documentary stories, and software applications.
         </motion.p>
         
-        {/* External Archive Links */}
-        <div className="flex flex-col sm:flex-row gap-4 items-center mb-10">
+        {/* Top Archive & Quick Nav Action Buttons */}
+        <div className="flex flex-col sm:flex-row flex-wrap gap-4 items-center justify-center mb-10">
           <a 
             href="https://www.youtube.com/@zabidalmuttaki3482/playlists" 
             target="_blank" 
@@ -264,6 +264,22 @@ export default function Projects() {
             <Play size={14} fill="currentColor" />
             AI Animation Channel
           </a>
+          <button 
+            onClick={() => setActiveTab('web-apps')}
+            className={`flex items-center gap-3 px-7 py-3.5 text-xs font-mono font-bold tracking-widest uppercase transition-colors border-2 ${
+              activeTab === 'web-apps'
+                ? 'bg-foreground text-background border-foreground shadow-md'
+                : 'border-foreground text-foreground hover:bg-foreground hover:text-background'
+            }`}
+          >
+            <Code size={14} />
+            <span>Web & Apps Archive</span>
+            <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
+              activeTab === 'web-apps' ? 'bg-accent text-white' : 'bg-foreground/10 text-foreground'
+            }`}>
+              {WEB_PROJECTS.length + APPS.length}
+            </span>
+          </button>
         </div>
 
         {/* Single Clean Interactive Filter Bar */}
