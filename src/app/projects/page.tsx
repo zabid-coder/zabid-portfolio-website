@@ -145,6 +145,9 @@ export default function Projects() {
     );
   };
 
+  const verticalUgc = UGC_VIDEOS.filter(v => v.aspectRatio === '9/16');
+  const landscapeUgc = UGC_VIDEOS.filter(v => v.aspectRatio === '16/9');
+
   return (
     <div className="min-h-screen w-full max-w-[1440px] mx-auto px-4 md:px-8 pt-36 md:pt-40 pb-32">
       
@@ -153,7 +156,7 @@ export default function Projects() {
         <div className="text-[10px] font-mono tracking-widest text-secondary uppercase mb-4">FEATURED WORK & ARCHIVE</div>
         <h1 className="text-5xl md:text-[80px] font-black tracking-tighter uppercase leading-[0.9]">THE WORK</h1>
         <motion.p 
-          className="mt-6 max-w-2xl font-mono text-xs md:text-sm text-secondary leading-relaxed mb-10 px-4"
+            className="mt-6 max-w-2xl font-mono text-xs md:text-sm text-secondary leading-relaxed mb-10 px-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -272,20 +275,43 @@ export default function Projects() {
             </section>
           )}
 
-          {/* 4. UGC & CREATOR CONTENT (Native Formats: 16:9 & 9:16) */}
+          {/* 4. UGC & CREATOR CONTENT (Balanced Hybrid Layout) */}
           {(activeTab === 'all' || activeTab === 'ugc') && (
             <section>
-              <div className="flex justify-between items-end mb-8 border-b-2 border-foreground pb-4">
+              <div className="flex justify-between items-end mb-10 border-b-2 border-foreground pb-4">
                 <h3 className="text-xl md:text-2xl font-mono font-bold tracking-widest uppercase flex items-center gap-3">
                   <Smartphone size={22} className="text-accent" />
-                  UGC & Creator Content (Native Aspect Ratios)
+                  UGC & Creator Content
                 </h3>
                 <span className="text-xs font-mono text-secondary">[{UGC_VIDEOS.length} Projects]</span>
               </div>
               
-              {/* Mixed Ratio Grid: 16:9 widescreen vs 9:16 vertical */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
-                {UGC_VIDEOS.map((work) => renderVideoCard(work))}
+              <div className="max-w-4xl mx-auto space-y-12">
+                {/* Vertical Social UGC Ads (Side by Side in 2 Columns) */}
+                {verticalUgc.length > 0 && (
+                  <div>
+                    <div className="text-[10px] font-mono uppercase tracking-widest text-secondary mb-4 flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                      <span>Vertical Social UGC Ads (9:16)</span>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                      {verticalUgc.map((work) => renderVideoCard(work, '9/16'))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Widescreen POV / UGC (Centered Below with Balanced Spacing) */}
+                {landscapeUgc.length > 0 && (
+                  <div className="pt-6 border-t border-foreground/10">
+                    <div className="text-[10px] font-mono uppercase tracking-widest text-secondary mb-4 flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-foreground"></span>
+                      <span>Widescreen POV & Lifestyle Content (16:9)</span>
+                    </div>
+                    <div className="grid grid-cols-1 gap-8">
+                      {landscapeUgc.map((work) => renderVideoCard(work, '16/9'))}
+                    </div>
+                  </div>
+                )}
               </div>
             </section>
           )}

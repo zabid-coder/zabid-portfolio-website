@@ -574,7 +574,7 @@ export const CLIENT_LOGOS = [
 
 
 
-// 6. UGC & CREATOR CONTENT (3+ Projects)
+// 6. UGC & CREATOR CONTENT (3 Projects)
 export const UGC_VIDEOS = [
   {
     id: "ugc-1",
@@ -589,17 +589,6 @@ export const UGC_VIDEOS = [
   },
   {
     id: "ugc-2",
-    title: "Australian POV Surfing (UGC)",
-    category: "UGC / Creator Content",
-    year: "2025",
-    image: "https://i.ytimg.com/vi/7cr_QteAVk4/hqdefault.jpg",
-    youtubeId: "7cr_QteAVk4",
-    client: "Creator Brand",
-    aspectRatio: "16/9" as const,
-    description: "Dynamic POV lifestyle UGC edit in widescreen 16:9 format.",
-  },
-  {
-    id: "ugc-3",
     title: "Talking Head UGC Format",
     category: "UGC / Creator Ad",
     year: "2025",
@@ -608,6 +597,17 @@ export const UGC_VIDEOS = [
     client: "E-Commerce / Creator",
     aspectRatio: "9/16" as const,
     description: "Engaging talking head creator review format in vertical 9:16.",
+  },
+  {
+    id: "ugc-3",
+    title: "Australian POV Surfing (UGC)",
+    category: "UGC / Creator Content",
+    year: "2025",
+    image: "https://i.ytimg.com/vi/7cr_QteAVk4/hqdefault.jpg",
+    youtubeId: "7cr_QteAVk4",
+    client: "Creator Brand",
+    aspectRatio: "16/9" as const,
+    description: "Dynamic POV lifestyle UGC edit in widescreen 16:9 format.",
   },
 ];
 
