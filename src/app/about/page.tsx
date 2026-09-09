@@ -34,7 +34,7 @@ export default function About() {
           <BracketFrame className="p-4 lg:p-6 mx-auto w-full max-w-md bg-foreground/[0.02]" bracketColor="border-foreground" offset={0}>
             <div className="relative aspect-[4/5] w-full bg-foreground/5 border border-foreground/10 overflow-hidden rounded-sm">
               <Image 
-                src="/zabid_portrait_transparent.png"
+                src="/zabid_about_portrait.jpg"
                 unoptimized
                 alt="Zabid Al Muttaki - Senior Video Editor & Developer"
                 fill
