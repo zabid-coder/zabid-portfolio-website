@@ -259,7 +259,7 @@ export default function Projects() {
             href="https://www.youtube.com/@shadorittu" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-3 border-2 border-foreground text-foreground px-7 py-3.5 text-xs font-mono font-bold tracking-widest uppercase hover:bg-foreground hover:text-background transition-colors"
+            className="flex items-center gap-3 border-2 border-foreground text-foreground px-7 py-3.5 text-xs font-mono font-bold tracking-widest uppercase hover:border-accent hover:text-accent transition-colors"
           >
             <Play size={14} fill="currentColor" />
             AI Animation Channel
@@ -269,12 +269,12 @@ export default function Projects() {
             className={`flex items-center gap-3 px-7 py-3.5 text-xs font-mono font-bold tracking-widest uppercase transition-colors border-2 ${
               activeTab === 'web-apps'
                 ? 'bg-foreground text-background border-foreground shadow-md'
-                : 'border-foreground text-foreground hover:bg-foreground hover:text-background'
+                : 'border-foreground text-foreground hover:border-accent hover:text-accent'
             }`}
           >
             <Code size={14} />
             <span>Web & Apps Archive</span>
-            <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
+            <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
               activeTab === 'web-apps' ? 'bg-accent text-white' : 'bg-foreground/10 text-foreground'
             }`}>
               {WEB_PROJECTS.length + APPS.length}
@@ -282,7 +282,7 @@ export default function Projects() {
           </button>
         </div>
 
-        {/* Single Clean Interactive Filter Bar */}
+        {/* Single Clean Interactive Filter Bar with Red Hover */}
         <div className="w-full overflow-x-auto pb-4 pt-2 no-scrollbar">
           <div className="flex justify-start md:justify-center items-center gap-2 md:gap-3 min-w-max px-2">
             {tabs.map((tab) => {
@@ -291,15 +291,15 @@ export default function Projects() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-sm font-mono text-xs uppercase tracking-wider transition-all duration-300 border ${
+                  className={`group flex items-center gap-2 px-4 py-2.5 rounded-sm font-mono text-xs uppercase tracking-wider transition-all duration-300 border ${
                     isActive 
                       ? 'bg-foreground text-background border-foreground font-bold shadow-md' 
-                      : 'bg-background/80 text-secondary border-foreground/20 hover:border-foreground hover:text-foreground'
+                      : 'bg-background/80 text-secondary border-foreground/20 hover:border-accent hover:text-accent'
                   }`}
                 >
                   <span>{tab.label}</span>
-                  <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                    isActive ? 'bg-accent text-white font-bold' : 'bg-foreground/10 text-secondary'
+                  <span className={`text-[10px] px-1.5 py-0.5 rounded-full transition-colors ${
+                    isActive ? 'bg-accent text-white font-bold' : 'bg-foreground/10 text-secondary group-hover:bg-accent group-hover:text-white'
                   }`}>
                     {tab.count}
                   </span>

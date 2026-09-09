@@ -17,10 +17,10 @@ export default function Navbar() {
         
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-12 text-secondary">
-          <Link href="/projects" className={`transition-colors ${pathname === '/projects' ? 'text-foreground font-bold' : 'hover:text-foreground'}`}>Work</Link>
-          <Link href="/capabilities" className={`transition-colors ${pathname === '/capabilities' ? 'text-foreground font-bold' : 'hover:text-foreground'}`}>Capabilities</Link>
-          <Link href="/about" className={`transition-colors ${pathname === '/about' ? 'text-foreground font-bold' : 'hover:text-foreground'}`}>About</Link>
-          <Link href="/contact" className={`transition-colors ${pathname === '/contact' ? 'text-foreground font-bold' : 'hover:text-foreground'}`}>Contact</Link>
+          <Link href="/projects" className={`transition-colors ${pathname === '/projects' ? 'text-accent font-bold' : 'hover:text-accent'}`}>Work</Link>
+          <Link href="/capabilities" className={`transition-colors ${pathname === '/capabilities' ? 'text-accent font-bold' : 'hover:text-accent'}`}>Capabilities</Link>
+          <Link href="/about" className={`transition-colors ${pathname === '/about' ? 'text-accent font-bold' : 'hover:text-accent'}`}>About</Link>
+          <Link href="/contact" className={`transition-colors ${pathname === '/contact' ? 'text-accent font-bold' : 'hover:text-accent'}`}>Contact</Link>
         </div>
 
         <a href="/contact" className="hidden md:block bg-accent text-background px-6 py-2 hover:bg-foreground transition-colors">
