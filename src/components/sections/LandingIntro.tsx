@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { ArrowRight } from 'lucide-react';
 import ClientLogos from '@/components/ClientLogos';
 
 export default function LandingIntro() {
@@ -152,6 +153,18 @@ export default function LandingIntro() {
             className="object-contain object-bottom"
           />
         </div>
+      </div>
+
+      {/* Round Explore Work Action Button */}
+      <div className="relative z-20 pointer-events-auto mb-4 md:mb-5 flex justify-center">
+        <button
+          onClick={() => handleNavigation('/projects')}
+          className="group flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-background/90 hover:bg-foreground hover:text-background border-2 border-foreground/30 hover:border-foreground backdrop-blur-md font-mono text-[10px] md:text-xs uppercase tracking-widest font-bold transition-all duration-300 shadow-xl hover:scale-105 active:scale-95"
+        >
+          <span className="w-1.5 h-1.5 rounded-full bg-accent group-hover:bg-white animate-pulse"></span>
+          <span>Explore Work</span>
+          <ArrowRight size={13} className="text-secondary group-hover:text-background group-hover:translate-x-1 transition-all" />
+        </button>
       </div>
 
       {/* Choice buttons */}
