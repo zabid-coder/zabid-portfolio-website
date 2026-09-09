@@ -49,7 +49,7 @@ export default function Projects() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Curated visual narratives, high-retention vertical edits, motion graphics, and full-stack software solutions.
+          Curated visual narratives, native 9:16 vertical creator edits, motion graphics, and full-stack software solutions.
         </motion.p>
         
         {/* External Archive Links */}
@@ -114,7 +114,7 @@ export default function Projects() {
           className="space-y-24"
         >
 
-          {/* 1. DOCUMENTARIES */}
+          {/* 1. DOCUMENTARIES (16:9 Landscape) */}
           {(activeTab === 'all' || activeTab === 'documentaries') && (
             <section>
               <div className="flex justify-between items-end mb-8 border-b-2 border-foreground pb-4">
@@ -159,7 +159,6 @@ export default function Projects() {
                             </div>
                           </div>
                           
-                          {/* Media Box: Thumbnail vs Inline Video */}
                           <div className="relative w-full overflow-hidden bg-foreground/5 mb-4 aspect-video rounded-sm">
                             {isPlaying ? (
                               <div className="relative w-full h-full bg-black">
@@ -220,7 +219,7 @@ export default function Projects() {
             </section>
           )}
 
-          {/* 2. PROMOS & COMMERCIALS */}
+          {/* 2. PROMOS & COMMERCIALS (16:9 Landscape) */}
           {(activeTab === 'all' || activeTab === 'promos') && (
             <section>
               <div className="flex justify-between items-end mb-8 border-b-2 border-foreground pb-4">
@@ -325,7 +324,7 @@ export default function Projects() {
             </section>
           )}
 
-          {/* 3. SHORTS & REELS (9:16 Vertical Grid) */}
+          {/* 3. SHORTS & REELS (NATIVE 9:16 VERTICAL GRID) */}
           {(activeTab === 'all' || activeTab === 'shorts') && (
             <section>
               <div className="flex justify-between items-end mb-8 border-b-2 border-foreground pb-4">
@@ -381,7 +380,7 @@ export default function Projects() {
                                     <Play size={16} fill="currentColor" className="ml-0.5" />
                                   </div>
                                 </div>
-                                <div className="absolute top-2 right-2 bg-black/70 px-1.5 py-0.5 rounded text-[9px] font-mono text-white">
+                                <div className="absolute top-2 right-2 bg-black/70 px-1.5 py-0.5 rounded text-[9px] font-mono text-white font-bold">
                                   9:16
                                 </div>
                               </div>
@@ -419,52 +418,27 @@ export default function Projects() {
             </section>
           )}
 
-          {/* 4. UGC & CREATOR CONTENT */}
+          {/* 4. UGC & CREATOR CONTENT (NATIVE 9:16 VERTICAL GRID) */}
           {(activeTab === 'all' || activeTab === 'ugc') && (
             <section>
               <div className="flex justify-between items-end mb-8 border-b-2 border-foreground pb-4">
                 <h3 className="text-xl md:text-2xl font-mono font-bold tracking-widest uppercase flex items-center gap-3">
                   <Smartphone size={22} className="text-accent" />
-                  UGC & Creator Content
+                  UGC & Creator Content (9:16 Vertical)
                 </h3>
                 <span className="text-xs font-mono text-secondary">[{UGC_VIDEOS.length} Projects]</span>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
                 {UGC_VIDEOS.map((work) => {
                   const isPlaying = playingId === work.id;
                   const embedUrl = getEmbedUrl(work);
                   const extUrl = getExternalUrl(work);
                   return (
                     <div key={work.id} className="group block">
-                      <BracketFrame className="p-4 bg-transparent transition-colors group-hover:bg-background h-full flex flex-col justify-between" bracketColor="border-foreground">
+                      <BracketFrame className="p-2.5 md:p-3 bg-transparent transition-colors group-hover:bg-background h-full flex flex-col justify-between" bracketColor="border-foreground">
                         <div>
-                          <div className="flex justify-between items-center text-[10px] font-mono uppercase tracking-widest mb-3">
-                            <span className="text-secondary">{work.category}</span>
-                            <div className="flex items-center gap-3">
-                              {extUrl && (
-                                <a 
-                                  href={extUrl} 
-                                  target="_blank" 
-                                  rel="noopener noreferrer"
-                                  onClick={(e) => e.stopPropagation()}
-                                  title="Open in new tab"
-                                  className="text-secondary hover:text-accent flex items-center gap-1 transition-colors font-mono font-bold"
-                                >
-                                  <span>EXTERNAL</span>
-                                  <ExternalLink size={11} />
-                                </a>
-                              )}
-                              <button 
-                                onClick={() => setPlayingId(isPlaying ? null : work.id)}
-                                className="text-foreground flex items-center gap-1.5 font-bold hover:text-accent transition-colors font-mono"
-                              >
-                                <span className={`w-1.5 h-1.5 rounded-full ${isPlaying ? 'bg-emerald-500 animate-pulse' : 'bg-accent'} inline-block`}></span>
-                                {isPlaying ? 'CLOSE' : 'PLAY INLINE'}
-                              </button>
-                            </div>
-                          </div>
-                          
-                          <div className="relative w-full overflow-hidden bg-foreground/5 mb-4 aspect-video rounded-sm">
+                          <div className="relative aspect-[9/16] w-full overflow-hidden bg-foreground/5 mb-3 rounded-sm">
                             {isPlaying ? (
                               <div className="relative w-full h-full bg-black">
                                 <iframe
@@ -477,9 +451,9 @@ export default function Projects() {
                                 <button
                                   onClick={() => setPlayingId(null)}
                                   className="absolute top-2 right-2 bg-black/80 hover:bg-accent text-white p-1 rounded-sm z-20 transition-colors"
-                                  title="Close inline player"
+                                  title="Close player"
                                 >
-                                  <X size={14} />
+                                  <X size={12} />
                                 </button>
                               </div>
                             ) : (
@@ -492,29 +466,43 @@ export default function Projects() {
                                   alt={work.title}
                                   fill
                                   unoptimized
-                                  className="object-cover transform group-hover:scale-105 transition-transform duration-[1.5s]"
-                                  sizes="(max-width: 768px) 100vw, 50vw"
+                                  className="object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                  sizes="(max-width: 768px) 50vw, 20vw"
                                 />
                                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                                  <div className="w-13 h-13 rounded-full bg-accent text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
-                                    <Play size={20} fill="currentColor" className="ml-0.5" />
+                                  <div className="w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                    <Play size={16} fill="currentColor" className="ml-0.5" />
                                   </div>
+                                </div>
+                                <div className="absolute top-2 right-2 bg-black/70 px-1.5 py-0.5 rounded text-[9px] font-mono text-white font-bold">
+                                  9:16
                                 </div>
                               </div>
                             )}
                           </div>
                         </div>
-                        
+
                         <div>
-                          <div className="text-[10px] font-mono text-secondary uppercase tracking-widest mb-1.5">
-                            {work.category} / {work.year}
+                          <div className="flex justify-between items-center text-[9px] font-mono text-secondary mb-1">
+                            <span>{work.year}</span>
+                            {extUrl && (
+                              <a 
+                                href={extUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-accent transition-colors font-mono"
+                                title="Watch on YouTube"
+                              >
+                                <ExternalLink size={10} />
+                              </a>
+                            )}
                           </div>
-                          <h3 
+                          <h4 
                             onClick={() => !isPlaying && setPlayingId(work.id)}
-                            className="text-base md:text-lg font-bold tracking-tight uppercase text-foreground group-hover:text-accent transition-colors cursor-pointer"
+                            className="font-bold text-xs uppercase tracking-tight text-foreground line-clamp-2 group-hover:text-accent transition-colors cursor-pointer"
                           >
                             {work.title}
-                          </h3>
+                          </h4>
                         </div>
                       </BracketFrame>
                     </div>
@@ -524,7 +512,7 @@ export default function Projects() {
             </section>
           )}
 
-          {/* 5. MOTION GRAPHICS & VFX */}
+          {/* 5. MOTION GRAPHICS & VFX (16:9 Landscape) */}
           {(activeTab === 'all' || activeTab === 'motion') && (
             <section>
               <div className="flex justify-between items-end mb-8 border-b-2 border-foreground pb-4">
@@ -741,7 +729,7 @@ export default function Projects() {
             </section>
           )}
 
-          {/* 7. AI ANIMATION (SHADORITTU) */}
+          {/* 7. AI ANIMATION (SHADORITTU - 16:9) */}
           {(activeTab === 'all' || activeTab === 'ai') && (
             <section>
               <div className="flex justify-between items-end mb-8 border-b-2 border-foreground pb-4">

@@ -579,36 +579,37 @@ export const UGC_VIDEOS = [
   {
     id: "ugc-1",
     title: "Puproot UGC Ad",
-    category: "UGC & Creator Content",
+    category: "UGC / Creator Ad",
     year: "2025",
     image: "https://i.ytimg.com/vi/Ltyc0e5F5ZY/hqdefault.jpg",
     youtubeId: "Ltyc0e5F5ZY",
     client: "Puproot",
-    description: "High-converting UGC video ad designed for social feeds with fast hook retention.",
+    aspectRatio: "9/16" as const,
+    description: "High-converting UGC video ad designed for vertical social feeds with fast hook retention.",
   },
   {
     id: "ugc-2",
     title: "Australian POV Surfing (UGC)",
-    category: "UGC & Creator Content",
+    category: "UGC / Creator Ad",
     year: "2025",
     image: "https://i.ytimg.com/vi/7cr_QteAVk4/hqdefault.jpg",
     youtubeId: "7cr_QteAVk4",
     client: "Creator Brand",
+    aspectRatio: "9/16" as const,
     description: "Dynamic POV lifestyle UGC edit tailored for viral social retention.",
   },
   {
     id: "ugc-3",
     title: "Talking Head UGC Format",
-    category: "UGC & Creator Content",
+    category: "UGC / Creator Ad",
     year: "2025",
     image: "https://i.ytimg.com/vi/rzVbEuvcUfc/hqdefault.jpg",
     youtubeId: "rzVbEuvcUfc",
     client: "E-Commerce / Creator",
+    aspectRatio: "9/16" as const,
     description: "Engaging talking head creator review format optimized for TikTok & Reels.",
   },
-];
-
-export const EXPERIENCE = [
+];export const EXPERIENCE = [
   {
     role: "Senior Video Editor",
     company: "DRIK PICTURE LIBRARY LTD.",
