@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Play, X, ExternalLink, Film, Sparkles, Smartphone, Layers, Code, Clapperboard } from 'lucide-react';
 import BracketFrame from '@/components/BracketFrame';
-import { DOCUMENTARIES, PROMOS, SHORTS_REELS, UGC_VIDEOS, MOTION_GRAPHICS, WEB_PROJECTS, APPS, ANIMATIONS } from '@/data';
+import { DOCUMENTARIES, PROMOS, SHORTS_REELS, UGC_VIDEOS, MOTION_GRAPHICS, WEB_PROJECTS, APPS, ANIMATIONS, SHOWREEL } from '@/data';
 import { motion, AnimatePresence } from 'framer-motion';
 
 type CategoryTab = 'all' | 'documentaries' | 'promos' | 'shorts' | 'ugc' | 'motion' | 'ai' | 'web-apps';
@@ -246,14 +246,26 @@ export default function Projects() {
         
         {/* Top Archive & Quick Nav Action Buttons */}
         <div className="flex flex-col sm:flex-row flex-wrap gap-4 items-center justify-center mb-10">
+          <button 
+            onClick={() => {
+              setActiveTab('all');
+              setPlayingId(SHOWREEL.id);
+              const el = document.getElementById('master-showreel');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="flex items-center gap-3 bg-accent text-white px-7 py-3.5 text-xs font-mono font-bold tracking-widest uppercase hover:bg-foreground hover:text-background transition-colors cursor-pointer shadow-lg"
+          >
+            <Play size={14} fill="currentColor" />
+            Watch Showreel 2026 (&ldquo;Creative OS&rdquo;)
+          </button>
           <a 
             href="https://www.youtube.com/@zabidalmuttaki3482/playlists" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-3 bg-accent text-white px-7 py-3.5 text-xs font-mono font-bold tracking-widest uppercase hover:bg-foreground hover:text-background transition-colors"
+            className="flex items-center gap-3 border-2 border-foreground text-foreground px-7 py-3.5 text-xs font-mono font-bold tracking-widest uppercase hover:border-accent hover:text-accent transition-colors"
           >
-            <Play size={14} fill="currentColor" />
-            Full YouTube Playlists
+            <ExternalLink size={14} />
+            YouTube Playlists
           </a>
           <a 
             href="https://www.youtube.com/@shadorittu" 
@@ -261,7 +273,7 @@ export default function Projects() {
             rel="noopener noreferrer"
             className="flex items-center gap-3 border-2 border-foreground text-foreground px-7 py-3.5 text-xs font-mono font-bold tracking-widest uppercase hover:border-accent hover:text-accent transition-colors"
           >
-            <Play size={14} fill="currentColor" />
+            <ExternalLink size={14} />
             AI Animation Channel
           </a>
           <button 
@@ -321,6 +333,146 @@ export default function Projects() {
           transition={{ duration: 0.4 }}
           className="space-y-24"
         >
+
+          {/* 00. MASTER SHOWREEL (Showreel 2026: "Creative OS") */}
+          {activeTab === 'all' && (
+            <section id="master-showreel" className="scroll-mt-40">
+              <div className="flex justify-between items-end mb-6 border-b-2 border-accent pb-3">
+                <div className="flex items-center gap-3">
+                  <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse"></span>
+                  <h2 className="text-xl md:text-2xl font-mono font-bold tracking-widest uppercase flex items-center gap-2.5">
+                    <Film size={22} className="text-accent" />
+                    <span>00 // {SHOWREEL.title}</span>
+                  </h2>
+                </div>
+                <div className="hidden sm:flex items-center gap-2 font-mono text-xs">
+                  <span className="px-2 py-0.5 border border-accent text-accent font-bold">4K 60FPS</span>
+                  <span className="text-secondary">[CODE-RENDERED]</span>
+                </div>
+              </div>
+
+              <BracketFrame className="p-4 md:p-6 bg-transparent hover:bg-background transition-colors" bracketColor="border-accent">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                  
+                  {/* Left: 16:9 Video Player / Thumbnail */}
+                  <div className="lg:col-span-7">
+                    <div className="relative w-full aspect-video bg-black rounded-sm overflow-hidden border border-foreground/15 shadow-xl">
+                      {playingId === SHOWREEL.id ? (
+                        <div className="relative w-full h-full">
+                          <iframe
+                            src={`https://www.youtube-nocookie.com/embed/${SHOWREEL.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
+                            title={SHOWREEL.title}
+                            className="w-full h-full border-0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                          />
+                          <button
+                            onClick={() => setPlayingId(null)}
+                            className="absolute top-2 right-2 bg-black/85 hover:bg-accent text-white p-1.5 rounded-sm z-20 transition-colors cursor-pointer"
+                            title="Close inline player"
+                          >
+                            <X size={16} />
+                          </button>
+                        </div>
+                      ) : (
+                        <div
+                          onClick={() => setPlayingId(SHOWREEL.id)}
+                          className="relative w-full h-full cursor-pointer group/thumb"
+                        >
+                          <Image
+                            src={SHOWREEL.image}
+                            alt={SHOWREEL.title}
+                            fill
+                            unoptimized
+                            className="object-cover group-hover/thumb:scale-105 transition-transform duration-700"
+                            sizes="(max-width: 1024px) 100vw, 60vw"
+                          />
+                          <div className="absolute inset-0 bg-black/35 group-hover/thumb:bg-black/20 transition-colors flex items-center justify-center">
+                            <div className="w-16 h-16 rounded-full bg-accent text-white flex items-center justify-center shadow-2xl group-hover/thumb:scale-110 transition-transform">
+                              <Play size={24} fill="currentColor" className="ml-1" />
+                            </div>
+                          </div>
+                          
+                          <div className="absolute top-3 left-3 bg-accent text-white px-2.5 py-1 rounded text-[10px] font-mono font-bold tracking-wider uppercase shadow-md flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+                            <span>PLAY 4K REEL</span>
+                          </div>
+
+                          <div className="absolute bottom-3 right-3 bg-black/80 text-white px-2 py-0.5 rounded text-[10px] font-mono font-bold">
+                            4K 60FPS • 138S
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Right: Editorial & Technical Architecture Brief */}
+                  <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-4">
+                    <div>
+                      <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-secondary mb-2">
+                        <span className="text-accent font-bold">★ CODE-DRIVEN SHOWREEL</span>
+                        <span>{SHOWREEL.year} • {SHOWREEL.duration}</span>
+                      </div>
+                      
+                      <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-foreground mb-1.5">
+                        {SHOWREEL.title}
+                      </h3>
+
+                      <p className="font-mono text-xs text-foreground/90 font-medium leading-snug mb-3">
+                        &ldquo;{SHOWREEL.tagline}&rdquo;
+                      </p>
+
+                      <p className="font-mono text-xs text-secondary leading-relaxed mb-4">
+                        {SHOWREEL.description}
+                      </p>
+
+                      <div className="space-y-2 border-t border-foreground/10 pt-3">
+                        {SHOWREEL.specs.map((spec: any, idx: number) => (
+                          <div key={idx} className="flex flex-col sm:flex-row sm:justify-between text-[11px] font-mono gap-0.5 sm:gap-2">
+                            <span className="text-secondary uppercase shrink-0">{spec.label}</span>
+                            <span className="text-foreground font-semibold text-left sm:text-right">{spec.value}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Action buttons */}
+                    <div className="pt-4 border-t border-foreground/10 flex flex-wrap items-center gap-2.5">
+                      <button
+                        onClick={() => setPlayingId(playingId === SHOWREEL.id ? null : SHOWREEL.id)}
+                        className="flex items-center gap-2 bg-foreground text-background hover:bg-accent hover:text-white px-5 py-2.5 text-xs font-mono font-bold tracking-widest uppercase transition-colors cursor-pointer"
+                      >
+                        <Play size={13} fill="currentColor" />
+                        <span>{playingId === SHOWREEL.id ? 'CLOSE PLAYER' : 'WATCH INLINE'}</span>
+                      </button>
+                      <a
+                        href={`https://www.youtube.com/watch?v=${SHOWREEL.youtubeId}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 border border-foreground/30 hover:border-accent text-foreground hover:text-accent px-4 py-2.5 text-xs font-mono font-bold tracking-widest uppercase transition-colors"
+                      >
+                        <span>YOUTUBE</span>
+                        <ExternalLink size={12} />
+                      </a>
+                      {SHOWREEL.linkedinUrl && (
+                        <a
+                          href={SHOWREEL.linkedinUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1.5 border border-accent/40 text-accent hover:bg-accent hover:text-white px-4 py-2.5 text-xs font-mono font-bold tracking-widest uppercase transition-colors"
+                        >
+                          <span>LINKEDIN BREAKDOWN</span>
+                          <ExternalLink size={12} />
+                        </a>
+                      )}
+                    </div>
+
+                  </div>
+
+                </div>
+              </BracketFrame>
+            </section>
+          )}
 
           {/* 1. DOCUMENTARIES (16:9 Landscape) */}
           {(activeTab === 'all' || activeTab === 'documentaries') && (

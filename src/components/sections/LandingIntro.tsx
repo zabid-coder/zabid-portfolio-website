@@ -2,15 +2,35 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Play, X, ExternalLink } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import ClientLogos from '@/components/ClientLogos';
+import BracketFrame from '@/components/BracketFrame';
+import { SHOWREEL } from '@/data';
 
 export default function LandingIntro() {
   const [hovered, setHovered] = useState<'editor' | 'developer' | null>(null);
+  const [showreelOpen, setShowreelOpen] = useState(false);
   const router = useRouter();
   
   const cursorRef = useRef<HTMLDivElement>(null);
   const portraitRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setShowreelOpen(false);
+    };
+    if (showreelOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [showreelOpen]);
 
   useEffect(() => {
     let mouseX = window.innerWidth / 2;
@@ -157,15 +177,28 @@ export default function LandingIntro() {
 
       {/* Bottom Action Controls Group */}
       <div className="relative mt-auto mb-6 md:mb-8 z-30 pointer-events-auto flex flex-col items-center gap-3">
-        {/* Round Explore Work Action Button */}
-        <button
-          onClick={() => handleNavigation('/projects')}
-          className="group flex items-center gap-2.5 px-6 py-2 rounded-full bg-background/95 hover:bg-foreground hover:text-background border-2 border-foreground/30 hover:border-foreground backdrop-blur-md font-mono text-[10px] md:text-xs uppercase tracking-widest font-bold transition-all duration-300 shadow-xl hover:scale-105 active:scale-95"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-accent group-hover:bg-white animate-pulse"></span>
-          <span>Explore Work</span>
-          <ArrowRight size={13} className="text-secondary group-hover:text-background group-hover:translate-x-1 transition-all" />
-        </button>
+        {/* Twin Action Pills: Watch Showreel + Explore Work */}
+        <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap justify-center px-4">
+          {/* Watch Showreel Pill Button */}
+          <button
+            onClick={() => setShowreelOpen(true)}
+            className="group flex items-center gap-2 px-5 py-2 rounded-full bg-background/95 hover:bg-accent text-foreground hover:text-white border-2 border-accent/50 hover:border-accent backdrop-blur-md font-mono text-[10px] md:text-xs uppercase tracking-widest font-bold transition-all duration-300 shadow-xl hover:scale-105 active:scale-95 cursor-pointer"
+          >
+            <span className="w-2 h-2 rounded-full bg-accent group-hover:bg-white animate-ping"></span>
+            <Play size={11} fill="currentColor" className="text-accent group-hover:text-white transition-colors ml-0.5" />
+            <span>Watch Showreel</span>
+          </button>
+
+          {/* Explore Work Pill Button */}
+          <button
+            onClick={() => handleNavigation('/projects')}
+            className="group flex items-center gap-2 px-5 py-2 rounded-full bg-background/95 hover:bg-foreground hover:text-background border-2 border-foreground/30 hover:border-foreground backdrop-blur-md font-mono text-[10px] md:text-xs uppercase tracking-widest font-bold transition-all duration-300 shadow-xl hover:scale-105 active:scale-95 cursor-pointer"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-foreground/40 group-hover:bg-background transition-colors"></span>
+            <span>Explore Work</span>
+            <ArrowRight size={12} className="text-secondary group-hover:text-background group-hover:translate-x-0.5 transition-all" />
+          </button>
+        </div>
 
         {/* Choice buttons */}
         <div className="flex flex-col sm:flex-row gap-0 shadow-2xl">
@@ -191,6 +224,88 @@ export default function LandingIntro() {
           </button>
         </div>
       </div>
+
+      {/* Cinematic Brutalist Showreel Modal */}
+      <AnimatePresence>
+        {showreelOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={() => setShowreelOpen(false)}
+            className="fixed inset-0 z-[200] bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 md:p-10 pointer-events-auto"
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 15 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 15 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-4xl bg-background border border-foreground/30 shadow-2xl p-4 md:p-6"
+            >
+              <BracketFrame className="w-full" bracketColor="border-accent">
+                {/* Modal Header */}
+                <div className="flex items-center justify-between pb-3 mb-3 border-b border-foreground/15">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-2 h-2 rounded-full bg-accent animate-ping"></span>
+                    <span className="font-mono text-[11px] md:text-xs tracking-widest uppercase font-bold text-foreground">
+                      00 // SHOWREEL 2026: &ldquo;CREATIVE OS&rdquo; (4K 60FPS)
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => setShowreelOpen(false)}
+                    className="flex items-center gap-1 font-mono text-[10px] md:text-xs uppercase tracking-widest text-secondary hover:text-accent font-bold transition-colors cursor-pointer"
+                  >
+                    <span>[ESC / CLOSE]</span>
+                    <X size={14} />
+                  </button>
+                </div>
+
+                {/* 16:9 Video Container */}
+                <div className="relative w-full aspect-video bg-black overflow-hidden rounded-sm border border-foreground/10 shadow-inner">
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${SHOWREEL.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
+                    title="Official Showreel"
+                    className="w-full h-full border-0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+
+                {/* Modal Footer / Metadata */}
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 mt-3 border-t border-foreground/15 font-mono text-[10px] md:text-xs">
+                  <span className="text-secondary tracking-widest uppercase text-center sm:text-left">
+                    REMOTION (REACT) • THREE.JS • ELEVENLABS AI • 4K 60FPS
+                  </span>
+                  <div className="flex items-center gap-4">
+                    {SHOWREEL.linkedinUrl && (
+                      <a
+                        href={SHOWREEL.linkedinUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-secondary hover:text-accent font-bold tracking-widest uppercase flex items-center gap-1 transition-colors"
+                      >
+                        <span>LINKEDIN ARCHITECTURE</span>
+                        <ExternalLink size={11} />
+                      </a>
+                    )}
+                    <a
+                      href={`https://www.youtube.com/watch?v=${SHOWREEL.youtubeId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-foreground hover:text-accent font-bold tracking-widest uppercase flex items-center gap-1 transition-colors"
+                    >
+                      <span>YOUTUBE</span>
+                      <ExternalLink size={11} />
+                    </a>
+                  </div>
+                </div>
+              </BracketFrame>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       {/* Custom Hover Cursor Tracker */}
       <div 
         ref={cursorRef}

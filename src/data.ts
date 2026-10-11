@@ -32,6 +32,32 @@ export const CORE_SKILLS = [
   "Motion Graphics",
 ];
 
+// 0. MASTER SHOWREEL (Showreel 2026: "Creative OS")
+export const SHOWREEL = {
+  id: "master-showreel-2026",
+  title: 'Showreel 2026: "Creative OS"',
+  tagline: "What happens when a Video Editor writes code, and AI becomes the creative co-pilot?",
+  category: "Code-Driven Showreel",
+  year: "2026",
+  duration: "138s (8,280 Frames)",
+  resolution: "4K UHD @ 60 FPS",
+  image: "https://i.ytimg.com/vi/tN86lREiZJI/hqdefault.jpg",
+  youtubeId: "tN86lREiZJI",
+  linkedinUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7515014128189726721/",
+  aspectRatio: "16/9",
+  description:
+    "Unlike traditional reels cut on a conventional NLE timeline, this entire 138-second film was choreographed and rendered programmatically using Remotion (React), Three.js, and Generative AI. Curating 102 distinct moving placements across 29 real-world projects (UNICEF, UNOPS, NEWF, WaterAid, and brand campaigns) with zero arbitrary loops across 8,280 frames.",
+  specs: [
+    { label: "Concept", value: 'Code-Driven Showreel ("Creative OS")' },
+    { label: "Engine & Stack", value: "Remotion (React Video) • Three.js • TypeScript" },
+    { label: "Spatial Depth", value: "React Three Fiber (Canvas Video Textures)" },
+    { label: "Audio Architecture", value: "Bespoke Narrative Score & Foley (ElevenLabs AI)" },
+    { label: "Broadcast Master", value: "4K 60 FPS • -16.22 LUFS / -2.56 dBTP (Python & FFmpeg)" },
+  ],
+  roles: ["Creative Direction", "Remotion Code", "Three.js Spatial Depth", "Generative Foley", "Broadcast Mastering"],
+  tools: ["Remotion", "Three.js", "TypeScript", "ElevenLabs", "Python / FFmpeg", "DaVinci Resolve"],
+};
+
 // 1. DOCUMENTARIES (10+ Projects)
 export const DOCUMENTARIES = [
   {
