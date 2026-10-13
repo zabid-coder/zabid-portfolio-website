@@ -158,13 +158,13 @@ export default function LandingIntro() {
 
       {/* Portrait */}
       <div 
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[44vh] sm:h-[52vh] md:h-[60vh] lg:h-[65vh] z-20 pointer-events-none"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[72vh] sm:h-[65vh] md:h-[60vh] lg:h-[65vh] z-20 pointer-events-none overflow-visible"
         style={{ 
-          maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)', 
-          WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' 
+          maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)', 
+          WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)' 
         }}
       >
-        <div ref={portraitRef} className="relative w-full h-full" style={{ willChange: 'transform' }}>
+        <div ref={portraitRef} className="relative w-full h-full scale-[1.4] sm:scale-100 origin-bottom" style={{ willChange: 'transform' }}>
           <Image
             src="/Zabid%20Al%20Muttaki.png"
             alt="Zabid Al Muttaki"
