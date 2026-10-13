@@ -88,10 +88,10 @@ export default function LandingIntro() {
   };
 
   return (
-    <section className="relative h-[100dvh] min-h-[580px] w-full bg-transparent flex flex-col items-center pt-20 md:pt-[25vh] pb-0 overflow-hidden">
+    <section className="relative h-[100dvh] min-h-[580px] w-full bg-transparent flex flex-col items-center pt-32 md:pt-[25vh] pb-0 overflow-hidden">
       
       {/* Intro line */}
-      <p className="text-[10px] md:text-xs 2xl:text-sm font-mono tracking-widest font-bold uppercase text-foreground/80 mb-2 md:mb-6 z-10">
+      <p className="text-[10px] md:text-xs 2xl:text-sm font-mono tracking-widest font-bold uppercase text-foreground/80 mb-3 md:mb-6 z-10">
         Hi, I’m Zabid Al Muttaki.
       </p>
 
