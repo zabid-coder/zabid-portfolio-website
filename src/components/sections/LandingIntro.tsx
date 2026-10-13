@@ -88,10 +88,10 @@ export default function LandingIntro() {
   };
 
   return (
-    <section className="relative h-[100dvh] min-h-[600px] w-full bg-transparent flex flex-col items-center pt-[20vh] md:pt-[25vh] pb-0 overflow-hidden">
+    <section className="relative h-[100dvh] min-h-[580px] w-full bg-transparent flex flex-col items-center pt-20 md:pt-[25vh] pb-0 overflow-hidden">
       
       {/* Intro line */}
-      <p className="text-[10px] md:text-xs 2xl:text-sm font-mono tracking-widest font-bold uppercase text-foreground/80 mb-6 z-10">
+      <p className="text-[10px] md:text-xs 2xl:text-sm font-mono tracking-widest font-bold uppercase text-foreground/80 mb-2 md:mb-6 z-10">
         Hi, I’m Zabid Al Muttaki.
       </p>
 
@@ -101,7 +101,7 @@ export default function LandingIntro() {
         {/* Z-10 BACK LAYER (Solid text behind portrait) */}
         <div className="relative z-10 flex flex-col items-center w-full pointer-events-none">
           <h1 
-            className={`font-black uppercase text-[12vw] md:text-[8.5vw] leading-[0.9] tracking-tight whitespace-nowrap transition-all duration-500 pointer-events-auto cursor-pointer ${
+            className={`font-black uppercase text-[11vw] sm:text-[10vw] md:text-[8.5vw] leading-[0.9] tracking-tight whitespace-nowrap transition-all duration-500 pointer-events-auto cursor-pointer ${
               hovered === 'editor' ? 'text-accent scale-105' : (hovered === 'developer' ? 'text-background scale-100' : 'text-foreground scale-100')
             }`}
             style={{ filter: hovered === 'developer' ? blackShadow : 'none' }}
@@ -112,7 +112,7 @@ export default function LandingIntro() {
             Video Editor
           </h1>
           <h1 
-            className={`font-black uppercase text-[12vw] md:text-[8.5vw] leading-[0.9] tracking-normal mt-2 md:mt-4 2xl:mt-6 whitespace-nowrap transition-all duration-500 pointer-events-auto cursor-pointer ${
+            className={`font-black uppercase text-[11vw] sm:text-[10vw] md:text-[8.5vw] leading-[0.9] tracking-normal mt-1 md:mt-4 2xl:mt-6 whitespace-nowrap transition-all duration-500 pointer-events-auto cursor-pointer ${
               hovered === 'developer' ? 'text-accent scale-105' : 'text-background scale-100'
             }`}
             style={{ filter: hovered === 'developer' ? 'none' : blackShadow }}
@@ -123,9 +123,9 @@ export default function LandingIntro() {
             & Developer
           </h1>
 
-                    {/* Subtext + client logos perfectly aligned on baseline */}
-          <div className="w-full flex flex-col md:flex-row justify-between items-center mt-4 2xl:mt-6 gap-3 md:gap-8 pointer-events-auto">
-            <p className="text-foreground/90 font-mono text-[10px] md:text-xs 2xl:text-sm tracking-widest uppercase font-bold shrink-0">
+          {/* Subtext + client logos perfectly aligned on baseline */}
+          <div className="w-full flex flex-col md:flex-row justify-between items-center mt-2.5 md:mt-4 2xl:mt-6 gap-2 md:gap-8 pointer-events-auto">
+            <p className="text-foreground/90 font-mono text-[9px] md:text-xs 2xl:text-sm tracking-widest uppercase font-bold shrink-0">
               BASED IN DHAKA, AVAILABLE WORLDWIDE.
             </p>
             <div className="w-full md:w-auto overflow-hidden flex items-center">
@@ -137,7 +137,7 @@ export default function LandingIntro() {
         {/* Z-30 FRONT LAYER (Perfect Transparent Outline in front of portrait) */}
         <div className="absolute top-0 left-0 w-full h-full z-30 flex flex-col items-center pointer-events-none px-4 mix-blend-multiply" aria-hidden="true">
           <h1 
-            className={`font-black uppercase text-[12vw] md:text-[8.5vw] leading-[0.9] tracking-tight whitespace-nowrap transition-all duration-500 text-white ${
+            className={`font-black uppercase text-[11vw] sm:text-[10vw] md:text-[8.5vw] leading-[0.9] tracking-tight whitespace-nowrap transition-all duration-500 text-white ${
               hovered === 'editor' ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
             }`}
             style={{ filter: redShadow }}
@@ -145,7 +145,7 @@ export default function LandingIntro() {
             Video Editor
           </h1>
           <h1 
-            className={`font-black uppercase text-[12vw] md:text-[8.5vw] leading-[0.9] tracking-normal mt-2 md:mt-4 2xl:mt-6 whitespace-nowrap transition-all duration-500 text-white ${
+            className={`font-black uppercase text-[11vw] sm:text-[10vw] md:text-[8.5vw] leading-[0.9] tracking-normal mt-1 md:mt-4 2xl:mt-6 whitespace-nowrap transition-all duration-500 text-white ${
               hovered === 'developer' ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
             }`}
             style={{ filter: redShadow }}
@@ -158,10 +158,10 @@ export default function LandingIntro() {
 
       {/* Portrait */}
       <div 
-        className="absolute bottom-[8vh] md:bottom-0 left-1/2 -translate-x-1/2 w-full h-[55vh] md:h-[60vh] lg:h-[65vh] z-20 pointer-events-none"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[44vh] sm:h-[52vh] md:h-[60vh] lg:h-[65vh] z-20 pointer-events-none"
         style={{ 
-          maskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)', 
-          WebkitMaskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)' 
+          maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)', 
+          WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' 
         }}
       >
         <div ref={portraitRef} className="relative w-full h-full" style={{ willChange: 'transform' }}>
@@ -170,43 +170,44 @@ export default function LandingIntro() {
             alt="Zabid Al Muttaki"
             fill
             priority
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-contain object-bottom"
           />
         </div>
       </div>
 
       {/* Bottom Action Controls Group */}
-      <div className="relative mt-auto mb-6 md:mb-8 z-30 pointer-events-auto flex flex-col items-center gap-3">
-        {/* Twin Action Pills: Watch Showreel + Explore Work */}
-        <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap justify-center px-4">
+      <div className="relative mt-auto mb-4 md:mb-8 z-30 pointer-events-auto flex flex-col items-center gap-2 md:gap-3 px-4 w-full">
+        {/* Twin Action Pills: Watch Showreel + Explore Work (Never wrap on mobile) */}
+        <div className="flex items-center gap-2 sm:gap-3 flex-nowrap justify-center max-w-full">
           {/* Watch Showreel Pill Button */}
           <button
             onClick={() => setShowreelOpen(true)}
-            className="group flex items-center gap-2 px-5 py-2 rounded-full bg-background/95 hover:bg-accent text-foreground hover:text-white border-2 border-accent/50 hover:border-accent backdrop-blur-md font-mono text-[10px] md:text-xs uppercase tracking-widest font-bold transition-all duration-300 shadow-xl hover:scale-105 active:scale-95 cursor-pointer"
+            className="group flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 md:px-5 md:py-2 rounded-full bg-background/95 hover:bg-accent text-foreground hover:text-white border border-accent/50 md:border-2 hover:border-accent backdrop-blur-md font-mono text-[9px] sm:text-[10px] md:text-xs uppercase tracking-widest font-bold transition-all duration-300 shadow-xl hover:scale-105 active:scale-95 cursor-pointer whitespace-nowrap shrink-0"
           >
-            <span className="w-2 h-2 rounded-full bg-accent group-hover:bg-white animate-ping"></span>
-            <Play size={11} fill="currentColor" className="text-accent group-hover:text-white transition-colors ml-0.5" />
+            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-accent group-hover:bg-white animate-ping"></span>
+            <Play size={10} fill="currentColor" className="text-accent group-hover:text-white transition-colors ml-0.5" />
             <span>Watch Showreel</span>
           </button>
 
           {/* Explore Work Pill Button */}
           <button
             onClick={() => handleNavigation('/projects')}
-            className="group flex items-center gap-2 px-5 py-2 rounded-full bg-background/95 hover:bg-foreground hover:text-background border-2 border-foreground/30 hover:border-foreground backdrop-blur-md font-mono text-[10px] md:text-xs uppercase tracking-widest font-bold transition-all duration-300 shadow-xl hover:scale-105 active:scale-95 cursor-pointer"
+            className="group flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 md:px-5 md:py-2 rounded-full bg-background/95 hover:bg-foreground hover:text-background border border-foreground/30 md:border-2 hover:border-foreground backdrop-blur-md font-mono text-[9px] sm:text-[10px] md:text-xs uppercase tracking-widest font-bold transition-all duration-300 shadow-xl hover:scale-105 active:scale-95 cursor-pointer whitespace-nowrap shrink-0"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-foreground/40 group-hover:bg-background transition-colors"></span>
             <span>Explore Work</span>
-            <ArrowRight size={12} className="text-secondary group-hover:text-background group-hover:translate-x-0.5 transition-all" />
+            <ArrowRight size={11} className="text-secondary group-hover:text-background group-hover:translate-x-0.5 transition-all" />
           </button>
         </div>
 
         {/* Choice buttons */}
-        <div className="flex flex-col sm:flex-row gap-0 shadow-2xl">
+        <div className="flex flex-col sm:flex-row gap-0 shadow-2xl w-full max-w-[320px] sm:max-w-none justify-center">
           <button
             onClick={() => handleNavigation('/contact?service=video')}
             onMouseEnter={() => setHovered('editor')}
             onMouseLeave={() => setHovered(null)}
-            className={`px-8 py-4 md:px-10 2xl:px-12 2xl:py-5 text-[10px] md:text-xs 2xl:text-sm font-mono font-bold tracking-widest uppercase transition-all duration-300 border border-transparent active:scale-95 active:bg-accent active:text-white ${
+            className={`px-5 py-2.5 md:px-10 md:py-4 2xl:px-12 2xl:py-5 text-[9px] sm:text-[10px] md:text-xs 2xl:text-sm font-mono font-bold tracking-widest uppercase transition-all duration-300 border border-transparent active:scale-95 active:bg-accent active:text-white text-center ${
               hovered === 'editor' ? 'bg-accent text-white border-accent' : 'bg-foreground text-background'
             }`}
           >
@@ -216,7 +217,7 @@ export default function LandingIntro() {
             onClick={() => handleNavigation('/contact?service=dev')}
             onMouseEnter={() => setHovered('developer')}
             onMouseLeave={() => setHovered(null)}
-            className={`px-8 py-4 md:px-10 2xl:px-12 2xl:py-5 text-[10px] md:text-xs 2xl:text-sm font-mono font-bold tracking-widest uppercase transition-all duration-300 border active:scale-95 active:bg-accent active:text-white active:border-accent ${
+            className={`px-5 py-2.5 md:px-10 md:py-4 2xl:px-12 2xl:py-5 text-[9px] sm:text-[10px] md:text-xs 2xl:text-sm font-mono font-bold tracking-widest uppercase transition-all duration-300 border active:scale-95 active:bg-accent active:text-white active:border-accent text-center ${
               hovered === 'developer' ? 'bg-accent text-white border-accent' : 'bg-background text-foreground border-foreground'
             }`}
           >
